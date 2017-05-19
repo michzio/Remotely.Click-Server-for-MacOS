@@ -673,12 +673,16 @@
                         <menuItem title="Server status view" id="Da8-ia-L5W">
                             <modifierMask key="keyEquivalentModifierMask"/>
                         </menuItem>
+                        <menuItem isSeparatorItem="YES" id="lTh-Yu-HP4"/>
+                        <menuItem title="Connecting devices..." hidden="YES" id="msi-d9-Nn8">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="MKp-ZG-zph"/>
                         <menuItem title="About Remotely.Click" keyEquivalent="i" id="mc7-0G-MBY" userLabel="About">
                             <connections>
                                 <segue destination="mqG-DA-3d1" kind="show" id="Vas-nR-Bii"/>
                             </connections>
                         </menuItem>
-                        <menuItem isSeparatorItem="YES" id="tHk-4Y-mu4"/>
                         <menuItem title="Preferences" keyEquivalent="p" id="Fp7-gf-yMj">
                             <connections>
                                 <segue destination="eKy-Mj-0oj" kind="show" id="naX-MT-XYv"/>
@@ -1036,24 +1040,6 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amR-Zd-Iq5">
-                                <rect key="frame" x="167" y="222" width="263" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="0Ia-46-9He">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDI-H8-hbO">
-                                <rect key="frame" x="167" y="178" width="263" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="XsZ-5q-EGu">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Toa-tw-fWG">
                                 <rect key="frame" x="161" y="125" width="140" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1076,6 +1062,30 @@
                                     <action selector="clearPasswordClick:" target="8od-mV-2T3" id="X0s-wb-ESA"/>
                                 </connections>
                             </button>
+                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbB-rf-ll5">
+                                <rect key="frame" x="167" y="220" width="263" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="u0k-vs-f5N">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
+                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoa-Gn-Yeg">
+                                <rect key="frame" x="167" y="181" width="263" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="y4S-4f-Zsl">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="quF-B7-5Sr" firstAttribute="centerY" secondItem="v7S-Ar-x2J" secondAttribute="centerY" id="6aN-l3-pRI"/>
@@ -1086,6 +1096,10 @@
                             <constraint firstAttribute="bottom" secondItem="quF-B7-5Sr" secondAttribute="bottom" id="ndv-81-yvy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="zoa-Gn-Yeg" id="KmL-pJ-yN8"/>
+                        <outlet property="passwordTextField" destination="jbB-rf-ll5" id="cqF-QX-o3l"/>
+                    </connections>
                 </viewController>
                 <customObject id="qge-Od-qla" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
