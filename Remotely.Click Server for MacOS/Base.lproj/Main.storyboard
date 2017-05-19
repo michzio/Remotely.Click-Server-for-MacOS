@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -663,12 +664,16 @@
                 <customObject id="zwF-n4-dbW" userLabel="Status Bar Menu Controller" customClass="StatusBarMenuController" customModule="Remotely_Click_Server_for_MacOS" customModuleProvider="target">
                     <connections>
                         <outlet property="menu" destination="YP2-gM-OoZ" id="1XB-YC-uAK"/>
+                        <outlet property="serverStatusMenuItem" destination="Da8-ia-L5W" id="iRe-j9-hNA"/>
                     </connections>
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="YP2-gM-OoZ" userLabel="Status Bar Menu">
                     <items>
-                        <menuItem title="About" keyEquivalent="i" id="mc7-0G-MBY" userLabel="About">
+                        <menuItem title="Server status view" id="Da8-ia-L5W">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="About Remotely.Click" keyEquivalent="i" id="mc7-0G-MBY" userLabel="About">
                             <connections>
                                 <segue destination="mqG-DA-3d1" kind="show" id="Vas-nR-Bii"/>
                             </connections>
@@ -701,24 +706,84 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                     </window>
                     <connections>
-                        <segue destination="YtF-4F-lnu" kind="relationship" relationship="window.shadowedContentViewController" id="aja-B7-dMq"/>
+                        <segue destination="fNa-Dp-0j1" kind="relationship" relationship="window.shadowedContentViewController" id="chk-EZ-XaS"/>
                     </connections>
                 </windowController>
                 <customObject id="P2R-0j-d9v" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="591" y="-20"/>
         </scene>
-        <!--Preferences Tab View Controller-->
+        <!--Preferences Split View-->
+        <scene sceneID="m36-nV-fPl">
+            <objects>
+                <splitViewController title="Preferences Split View" id="fNa-Dp-0j1" customClass="PreferencesSplitViewController" customModule="Remotely_Click_Server_for_MacOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem holdingPriority="1000" id="dft-Hn-O5U"/>
+                        <splitViewItem holdingPriority="750" id="JuB-Yv-Hc4"/>
+                    </splitViewItems>
+                    <splitView key="splitView" wantsLayer="YES" dividerStyle="thin" id="gK9-2i-tJ7">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </splitView>
+                    <connections>
+                        <segue destination="Toi-5N-275" kind="relationship" relationship="splitItems" id="FdE-9A-XaA"/>
+                        <segue destination="YtF-4F-lnu" kind="relationship" relationship="splitItems" id="hcG-Ed-D60"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="r6e-r3-aVV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591" y="430"/>
+        </scene>
+        <!--Preferences Header-->
+        <scene sceneID="SWo-87-c1l">
+            <objects>
+                <viewController title="Preferences Header" id="Toi-5N-275" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="XJA-BE-7Ap" customClass="PreferencesHeaderView" customModule="Remotely_Click_Server_for_MacOS" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="70"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="6Ra-my-P7e">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="70"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eL2-cB-6me">
+                                        <rect key="frame" x="156" y="21" width="138" height="28"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Preferences" id="U7I-aq-WGr">
+                                            <font key="font" metaFont="systemBold" size="23"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eL2-cB-6me" firstAttribute="centerY" secondItem="6Ra-my-P7e" secondAttribute="centerY" id="isn-Bx-oKy"/>
+                                    <constraint firstItem="eL2-cB-6me" firstAttribute="centerX" secondItem="6Ra-my-P7e" secondAttribute="centerX" id="rao-Zv-JWV"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6Ra-my-P7e" secondAttribute="trailing" id="4jb-lp-kCn"/>
+                            <constraint firstItem="6Ra-my-P7e" firstAttribute="leading" secondItem="XJA-BE-7Ap" secondAttribute="leading" id="5ue-tH-uq8"/>
+                            <constraint firstItem="6Ra-my-P7e" firstAttribute="top" secondItem="XJA-BE-7Ap" secondAttribute="top" id="ZLE-pi-a5c"/>
+                            <constraint firstAttribute="bottom" secondItem="6Ra-my-P7e" secondAttribute="bottom" id="nsL-yf-E71"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="s8K-fw-aOR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="-97"/>
+        </scene>
+        <!--Preferences Tabs-->
         <scene sceneID="9rq-5b-kLe">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" id="YtF-4F-lnu" customClass="PreferencesTabViewController" customModule="Remotely_Click_Server_for_MacOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController title="Preferences Tabs" selectedTabViewItemIndex="0" id="YtF-4F-lnu" customClass="PreferencesTabViewController" customModule="Remotely_Click_Server_for_MacOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="shT-eS-HBY"/>
                         <tabViewItem identifier="" id="bT4-DN-IbE"/>
                         <tabViewItem id="nda-E6-Emx"/>
                     </tabViewItems>
                     <viewControllerTransitionOptions key="transitionOptions" crossfade="YES"/>
-                    <tabView key="tabView" misplaced="YES" type="noTabsNoBorder" id="YH3-Tf-OBd">
+                    <tabView key="tabView" wantsLayer="YES" misplaced="YES" type="noTabsNoBorder" id="YH3-Tf-OBd">
+                        <rect key="frame" x="-230" y="-88" width="435" height="278"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems/>
@@ -734,16 +799,19 @@
                 </tabViewController>
                 <customObject id="EDO-fo-7gc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180" y="-26"/>
+            <point key="canvasLocation" x="1159.5" y="217"/>
         </scene>
         <!--General-->
         <scene sceneID="ORT-Aq-J0Q">
             <objects>
                 <viewController title="General" id="w1i-bd-2m6" customClass="GeneralPreferencesViewController" customModule="Remotely_Click_Server_for_MacOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="RNi-He-KYf">
+                    <view key="view" wantsLayer="YES" id="RNi-He-KYf">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="hPr-cD-WLE">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </visualEffectView>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9a6-kN-NVq">
                                 <rect key="frame" x="18" y="257" width="414" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -767,6 +835,14 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="hPr-cD-WLE" firstAttribute="centerY" secondItem="RNi-He-KYf" secondAttribute="centerY" id="O0k-Qd-W2O"/>
+                            <constraint firstItem="hPr-cD-WLE" firstAttribute="top" secondItem="RNi-He-KYf" secondAttribute="top" id="Qev-Vn-4Ed"/>
+                            <constraint firstAttribute="trailing" secondItem="hPr-cD-WLE" secondAttribute="trailing" id="UKH-Tm-9LZ"/>
+                            <constraint firstItem="hPr-cD-WLE" firstAttribute="leading" secondItem="RNi-He-KYf" secondAttribute="leading" id="nNV-Dh-gYa"/>
+                            <constraint firstAttribute="bottom" secondItem="hPr-cD-WLE" secondAttribute="bottom" id="qn9-0D-yOv"/>
+                            <constraint firstItem="hPr-cD-WLE" firstAttribute="centerX" secondItem="RNi-He-KYf" secondAttribute="centerX" id="uZB-fb-Wca"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="shouldAutoLaunchServer" destination="A8U-Kg-bJF" id="Sdm-4v-Nmf"/>
@@ -781,10 +857,13 @@
         <scene sceneID="HKi-nD-2gE">
             <objects>
                 <viewController title="Network" id="7FL-B7-db8" customClass="NetworkPreferencesViewController" customModule="Remotely_Click_Server_for_MacOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="15B-rL-z18">
+                    <view key="view" wantsLayer="YES" id="15B-rL-z18">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="kXm-nE-2JI">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </visualEffectView>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Yj-0u-YcK">
                                 <rect key="frame" x="18" y="262" width="414" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -792,8 +871,11 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="autoDiscoverDevicesCheckboxClick:" target="7FL-B7-db8" id="h7q-Ok-yeQ"/>
+                                </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s8C-gE-1hS">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8C-gE-1hS">
                                 <rect key="frame" x="18" y="166" width="414" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Server configuration" id="bDe-th-ypl">
@@ -802,7 +884,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Da-4p-OaZ">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Da-4p-OaZ">
                                 <rect key="frame" x="18" y="136" width="72" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="IP address:" id="ono-hL-W44">
@@ -811,7 +893,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pB5-mh-n0S">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pB5-mh-n0S">
                                 <rect key="frame" x="18" y="102" width="34" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Port:" id="x4g-9f-2B0">
@@ -820,7 +902,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xuh-ui-bpd">
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xuh-ui-bpd">
                                 <rect key="frame" x="135" y="133" width="295" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="192.168.8.100" drawsBackground="YES" id="M7L-ok-H34">
@@ -829,7 +911,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efi-EY-aGH">
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efi-EY-aGH">
                                 <rect key="frame" x="135" y="102" width="295" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="2017" drawsBackground="YES" id="jPs-sw-4gm">
@@ -839,9 +921,9 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qm3-M6-XIz">
-                                <rect key="frame" x="14" y="25" width="127" height="32"/>
+                                <rect key="frame" x="13" y="25" width="129" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Stop Listening" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gNE-ea-rhv">
+                                <buttonCell key="cell" type="push" title="Start Listening" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gNE-ea-rhv">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -856,8 +938,11 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="useCustomPortCheckboxClick:" target="7FL-B7-db8" id="W95-dR-6s0"/>
+                                </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lmR-0w-Vhm">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmR-0w-Vhm">
                                 <rect key="frame" x="18" y="228" width="151" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Discoverable Name" id="JcI-5s-6sh">
@@ -866,7 +951,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bux-6u-WqF">
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bux-6u-WqF">
                                 <rect key="frame" x="20" y="198" width="410" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ylJ-7Z-QHi">
@@ -878,9 +963,9 @@
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RLh-vH-hSO">
                                 <rect key="frame" x="402" y="32" width="28" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="left" imageScaling="proportionallyDown" image="GreenStatusIcon" id="Xaa-Zd-A4C"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="left" imageScaling="proportionallyDown" image="RedStatusIcon" id="Xaa-Zd-A4C"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K4R-C2-cPv">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4R-C2-cPv">
                                 <rect key="frame" x="166" y="228" width="266" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(if empty use computer name)" id="dcH-fy-sGh">
@@ -890,9 +975,23 @@
                                 </textFieldCell>
                             </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="kXm-nE-2JI" firstAttribute="centerX" secondItem="15B-rL-z18" secondAttribute="centerX" id="BBm-3N-GKv"/>
+                            <constraint firstAttribute="bottom" secondItem="kXm-nE-2JI" secondAttribute="bottom" id="aQy-eL-sSf"/>
+                            <constraint firstItem="kXm-nE-2JI" firstAttribute="top" secondItem="15B-rL-z18" secondAttribute="top" id="iWP-mo-Ni6"/>
+                            <constraint firstItem="kXm-nE-2JI" firstAttribute="centerY" secondItem="15B-rL-z18" secondAttribute="centerY" id="nYC-Pa-WZp"/>
+                            <constraint firstAttribute="trailing" secondItem="kXm-nE-2JI" secondAttribute="trailing" id="uBq-vz-GS6"/>
+                            <constraint firstItem="kXm-nE-2JI" firstAttribute="leading" secondItem="15B-rL-z18" secondAttribute="leading" id="wLO-RO-EUi"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="shouldAutoDiscoverButton" destination="0Yj-0u-YcK" id="MmP-hd-rTM"/>
+                        <outlet property="discoverableName" destination="bux-6u-WqF" id="X5v-ii-vVG"/>
+                        <outlet property="ipAddress" destination="Xuh-ui-bpd" id="sBe-rj-VMR"/>
+                        <outlet property="listenButton" destination="Qm3-M6-XIz" id="tYJ-ut-viz"/>
+                        <outlet property="portNumber" destination="efi-EY-aGH" id="XWW-ba-hwN"/>
+                        <outlet property="serverStatus" destination="RLh-vH-hSO" id="lbY-nE-bUV"/>
+                        <outlet property="shouldAutoDiscoverDevices" destination="0Yj-0u-YcK" id="7pE-GZ-7Ps"/>
+                        <outlet property="shouldUseCustomPort" destination="3dp-zr-Upl" id="UjA-Be-fro"/>
                     </connections>
                 </viewController>
                 <customObject id="YWz-FD-SYt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -903,11 +1002,14 @@
         <scene sceneID="mrC-4e-OnY">
             <objects>
                 <viewController title="Security" id="8od-mV-2T3" customClass="SecurityPreferencesViewController" customModule="Remotely_Click_Server_for_MacOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="v7S-Ar-x2J">
+                    <view key="view" wantsLayer="YES" id="v7S-Ar-x2J">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUm-ly-PZS">
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="quF-B7-5Sr">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </visualEffectView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUm-ly-PZS">
                                 <rect key="frame" x="18" y="263" width="414" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Set Password for Connection:" id="G5E-mj-B6D">
@@ -916,7 +1018,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lmF-4E-Cng">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmF-4E-Cng">
                                 <rect key="frame" x="18" y="222" width="66" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Password:" id="dau-ll-OyM">
@@ -925,7 +1027,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TMj-4a-yj6">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMj-4a-yj6">
                                 <rect key="frame" x="18" y="183" width="118" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Confirm password:" id="u7v-pq-V0y">
@@ -934,7 +1036,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="amR-Zd-Iq5">
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amR-Zd-Iq5">
                                 <rect key="frame" x="167" y="222" width="263" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="0Ia-46-9He">
@@ -943,7 +1045,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zDI-H8-hbO">
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDI-H8-hbO">
                                 <rect key="frame" x="167" y="178" width="263" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="XsZ-5q-EGu">
@@ -975,6 +1077,14 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="quF-B7-5Sr" firstAttribute="centerY" secondItem="v7S-Ar-x2J" secondAttribute="centerY" id="6aN-l3-pRI"/>
+                            <constraint firstItem="quF-B7-5Sr" firstAttribute="top" secondItem="v7S-Ar-x2J" secondAttribute="top" id="99T-xX-y6b"/>
+                            <constraint firstItem="quF-B7-5Sr" firstAttribute="leading" secondItem="v7S-Ar-x2J" secondAttribute="leading" id="Gc5-fE-0hf"/>
+                            <constraint firstAttribute="trailing" secondItem="quF-B7-5Sr" secondAttribute="trailing" id="fiY-K0-Rn3"/>
+                            <constraint firstItem="quF-B7-5Sr" firstAttribute="centerX" secondItem="v7S-Ar-x2J" secondAttribute="centerX" id="hPi-dk-0uC"/>
+                            <constraint firstAttribute="bottom" secondItem="quF-B7-5Sr" secondAttribute="bottom" id="ndv-81-yvy"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="qge-Od-qla" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1002,39 +1112,69 @@
         <!--About View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="AboutViewController" customModule="Remotely_Click_Server_for_MacOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I14-EB-zDL">
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="RWW-4C-wFc">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            </visualEffectView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I14-EB-zDL">
                                 <rect key="frame" x="92" y="121" width="105" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Version: 0.1 beta" id="Wy4-Ss-c5Y">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pm4-im-D2V">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pm4-im-D2V">
                                 <rect key="frame" x="92" y="96" width="135" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Author: Michal Ziobro" id="i7U-Ov-U9F">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fNR-en-PqP">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNR-en-PqP">
                                 <rect key="frame" x="80" y="185" width="320" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Remotely.Click Server for macOS" id="GoK-Op-PU9">
                                     <font key="font" metaFont="systemBold" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pZa-Ta-doS">
+                                <rect key="frame" x="88" y="60" width="157" height="32"/>
+                                <buttonCell key="cell" type="push" title="www.remotely.click" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="X42-qU-jJx">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="goToRemotelyClick:" target="XfG-lQ-9wD" id="C2u-Zl-1t1"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RWW-4C-wFc" secondAttribute="trailing" id="4cP-ii-gcd"/>
+                            <constraint firstItem="I14-EB-zDL" firstAttribute="top" secondItem="fNR-en-PqP" secondAttribute="bottom" constant="47" id="7bb-hB-xvB"/>
+                            <constraint firstItem="I14-EB-zDL" firstAttribute="leading" secondItem="pZa-Ta-doS" secondAttribute="leading" id="8AT-kt-cw9"/>
+                            <constraint firstItem="fNR-en-PqP" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="61" id="A3d-os-wJf"/>
+                            <constraint firstItem="RWW-4C-wFc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="EFh-tT-r8k"/>
+                            <constraint firstItem="RWW-4C-wFc" firstAttribute="centerX" secondItem="fNR-en-PqP" secondAttribute="centerX" id="FED-6Z-gPW"/>
+                            <constraint firstItem="RWW-4C-wFc" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="OJd-dR-cFY"/>
+                            <constraint firstItem="RWW-4C-wFc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="PbE-3Z-Ged"/>
+                            <constraint firstAttribute="trailing" secondItem="RWW-4C-wFc" secondAttribute="trailing" id="Vcq-i8-kaw"/>
+                            <constraint firstItem="I14-EB-zDL" firstAttribute="leading" secondItem="pm4-im-D2V" secondAttribute="leading" id="bjC-dt-le7"/>
+                            <constraint firstAttribute="bottom" secondItem="RWW-4C-wFc" secondAttribute="bottom" id="c93-ji-zSu"/>
+                            <constraint firstItem="I14-EB-zDL" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="94" id="hAu-wY-mvn"/>
+                            <constraint firstAttribute="bottom" secondItem="RWW-4C-wFc" secondAttribute="bottom" id="uGB-ji-KSl"/>
+                            <constraint firstItem="RWW-4C-wFc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="vCj-jk-jMk"/>
+                            <constraint firstItem="pm4-im-D2V" firstAttribute="top" secondItem="I14-EB-zDL" secondAttribute="bottom" constant="8" symbolic="YES" id="vFI-fl-6h5"/>
+                            <constraint firstItem="RWW-4C-wFc" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="w17-co-gC9"/>
+                            <constraint firstItem="RWW-4C-wFc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="zl1-B1-0pU"/>
+                            <constraint firstItem="pZa-Ta-doS" firstAttribute="top" secondItem="pm4-im-D2V" secondAttribute="bottom" constant="8" symbolic="YES" id="zxo-ei-jiQ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1043,6 +1183,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GreenStatusIcon" width="300" height="300"/>
+        <image name="RedStatusIcon" width="300" height="300"/>
     </resources>
 </document>

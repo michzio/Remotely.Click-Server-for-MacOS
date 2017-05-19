@@ -23,6 +23,12 @@ class AboutViewController: NSViewController {
         }
     }
 
+    @IBAction func goToRemotelyClick(_ sender: Any) {
+        
+        if let url = URL(string: "http://remotely.click") {
+            NSWorkspace.shared().open(url);
+        }
+    }
 
 }
 

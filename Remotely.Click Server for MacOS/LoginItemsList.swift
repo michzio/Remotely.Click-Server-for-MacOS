@@ -22,7 +22,6 @@ class LoginItemsList : NSObject {
             return true;
         }
         
-        var path : CFURL = CFURLCreateWithString(nil, "file:///Applications/Safari.app" as CFString, nil);
         print("Path adding to Login Item list is: ", path);
         
         // add new Login Item at the end of Login Items list
@@ -55,10 +54,7 @@ class LoginItemsList : NSObject {
     
     
     func getLoginItem(_ path : CFURL) -> LSSharedFileListItem! {
-        
-        var path : CFURL = CFURLCreateWithString(nil, "file:///Applications/Safari.app" as CFString, nil);
-
-        
+    
         // Copy all login items in the list
         let loginItems : NSArray = LSSharedFileListCopySnapshot(loginItemsList, nil).takeRetainedValue();
         
@@ -115,76 +111,4 @@ class LoginItemsList : NSObject {
 
         return NSURL.fileURL(withPath: Bundle.main.bundlePath) as CFURL;
     }
-    
-    
-    // Returns a list of references to login items for the current user.
-    func itemReferencesInLoginItems() -> (existingReference: LSSharedFileListItem?, lastReference: LSSharedFileListItem?) {
-        var itemUrl: UnsafeMutablePointer<Unmanaged<CFURL>?> = UnsafeMutablePointer<Unmanaged<CFURL>?>.allocate(capacity:1)
-        if let appUrl: NSURL = NSURL.fileURL(withPath: Bundle.main.bundlePath) as NSURL? {
-                       let loginItemsRef = LSSharedFileListCreate(
-                                nil,
-                                kLSSharedFileListSessionLoginItems.takeRetainedValue(),
-                                nil
-                                ).takeRetainedValue() as LSSharedFileList?
-                        if loginItemsRef != nil {
-                                let loginItems: NSArray = LSSharedFileListCopySnapshot(loginItemsRef, nil).takeRetainedValue() as NSArray
-                                if(loginItems.count > 0)
-                                {
-                                    let lastItemRef: LSSharedFileListItem = loginItems.lastObject as! LSSharedFileListItem
-                                    for var i in  (0..<loginItems.count) {
-                                        let currentItemRef: LSSharedFileListItem = loginItems.object(at:i) as! LSSharedFileListItem
-                                        let currentItemUrl = LSSharedFileListItemCopyResolvedURL(currentItemRef, 0, nil).takeRetainedValue()
-                                        if appUrl.isEqual(currentItemUrl) {
-                                            return (currentItemRef, lastItemRef)
-                                        }
-                                    }
-                                    // The application was not found in the startup list.
-                                    return (nil, lastItemRef)
-                                }
-                              else
-                          {
-                          let addatstart: LSSharedFileListItem = kLSSharedFileListItemBeforeFirst.takeRetainedValue()
-                    
-                                 return(nil,addatstart)
-                       }
-                }
-                }
-        return (nil, nil)
-    }
-    
-    // Toggles whether or not this program is launched at startup.
-    func toggleLaunchAtStartup() {
-        let itemReferences = itemReferencesInLoginItems()
-        let shouldBeToggled = (itemReferences.existingReference == nil)
-        let loginItemsRef = LSSharedFileListCreate(
-            nil,
-            kLSSharedFileListSessionLoginItems.takeRetainedValue(),
-            nil
-            ).takeRetainedValue() as LSSharedFileList?
-        if loginItemsRef != nil {
-           if shouldBeToggled {
-               if let appUrl: CFURL = NSURL.fileURL(withPath: Bundle.main.bundlePath) as NSURL? {
-                print("Adding Login Item");
-                    LSSharedFileListInsertItemURL(
-                        loginItemsRef,
-                        itemReferences.lastReference,
-                        "Display Name" as CFString,
-                        nil,
-                        appUrl,
-                        nil,
-                        nil
-                                        )
-                             }
-                      } else {
-                if let itemRef = itemReferences.existingReference {
-                    LSSharedFileListItemRemove(loginItemsRef,itemRef);
-                    }
-                }
-            }
-    }
-    
-    func applicationIsInStartUpItems() -> Bool {
-            return (itemReferencesInLoginItems().existingReference != nil)
-    }
-    
 }

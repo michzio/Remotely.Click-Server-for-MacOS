@@ -16,6 +16,13 @@ class PreferencesWindowController: NSWindowController {
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         NSApp.activate(ignoringOtherApps: true)
         self.window?.makeKeyAndOrderFront(nil);
+        
+        window?.titlebarAppearsTransparent = true;
+        window?.titleVisibility = .hidden;
+        
+        // disable opacity 
+        window?.isOpaque = false; 
+        window?.backgroundColor = NSColor.windowBackgroundColor;
     }
 
 }

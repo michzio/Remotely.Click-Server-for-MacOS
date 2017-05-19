@@ -31,17 +31,24 @@ class GeneralPreferencesViewController: NSViewController {
         UserDefaults.standard
             .set(Bool(checkboxButton.state as NSNumber), forKey: "shouldBeLoginItem");
         
-      /*  if(!SMLoginItemSetEnabled("click.remotely.Remotely-Click-Server-Launcher" as CFString, Bool(checkboxButton.state as NSNumber) ) ) {
+       if(!SMLoginItemSetEnabled("click.remotely.Remotely-Click-Server-Launcher" as CFString, Bool(checkboxButton.state as NSNumber) ) ) {
             let alert: NSAlert = NSAlert()
             alert.messageText = "Remotely.Click Server - Error";
             alert.informativeText = "Application couldn't be added as Login Item to macOS System Preferences > Users & Groups.";
             alert.alertStyle = NSAlertStyle.warning;
             alert.addButton(withTitle:"OK");
             alert.runModal();
+       } else {
+            // 
         }
-
-      */
         
+      /*
+        // Deprecated approach that inserts new Login Item into
+        // System Preferences > Users & Groups > Login Items 
+        // in order to work it needs to disable App Sandbox 
+        // by toggle from YES -> NO in Remotely.Click Server for MacOS.entitlements 
+        // watch more: https://www.youtube.com/watch?v=UvDkby0t_WI
+ 
         let loginItemsList = LoginItemsList();
         
         if( checkboxButton.state == 0) {
@@ -53,11 +60,16 @@ class GeneralPreferencesViewController: NSViewController {
                 print("Error while adding Login Item to the list.");
             }
         }
+       */
     }
     
-    @IBAction func autoLaunchServerCheckboxClick(_ sender: NSButton) {
+    @IBAction func autoLaunchServerCheckboxClick(_ checkboxButton: NSButton) {
+        
+        UserDefaults.standard
+            .set(Bool(checkboxButton.state as NSNumber), forKey: "shouldAutoLaunchServer");
     
-        let loginItem: LoginItem = LoginItem()
-        loginItem.enable(with: URL(string: "file:///Applications/Safari.app"));
+        // Test invocation of Objective-C method. 
+        // let object: CustomObjectInObjC = CustomObjectInObjC()
+        // object.someMethod();
     }
 }

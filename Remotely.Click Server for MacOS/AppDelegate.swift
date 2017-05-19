@@ -11,11 +11,16 @@ import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        
+        ensureSingleInstanceOfThisApp();
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
        
         // Insert code here to initialize your application
-        //firstAppLaunchPreferences();
+        firstAppLaunchPreferences();
         print("App started...");
 
     }
@@ -42,6 +47,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // add initial preference for "shouldAutoLaunchServer" default to true
             UserDefaults.standard.set(true, forKey: "shouldAutoLaunchServer");
             
+        }
+        
+        if(!preferencesKeys.contains("shouldAutoDiscoverDevices")) {
+            // add initial preference for "shouldAutoDiscoverDevices" default to true 
+            UserDefaults.standard.set(true, forKey: "shouldAutoDiscoverDevices"); 
+        }
+    }
+    
+    /*
+     * Before launching application check whether there isn't another
+     * instance of application with the same Bundle Identifier already running
+     */
+    func ensureSingleInstanceOfThisApp() {
+        
+        let runningApps : [NSRunningApplication] = NSWorkspace.shared().runningApplications
+        
+        var countInstances = 0;
+        for app in runningApps {
+            if (app.bundleIdentifier == Bundle.main.bundleIdentifier) {
+                countInstances = countInstances + 1;
+            }
+        }
+        
+        if(countInstances > 1) {
+            NSApp.terminate(nil);
         }
     }
 }

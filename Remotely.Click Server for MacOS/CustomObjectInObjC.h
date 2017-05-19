@@ -6,19 +6,18 @@
 //  Copyright © 2017 Michal Ziobro. All rights reserved.
 //
 
-#ifndef LoginItem_h
-#define LoginItem_h
+#ifndef CustomObjectInObjC_h
+#define CustomObjectInObjC_h
 
 #import <Foundation/Foundation.h>
 
-@interface LoginItem : NSObject
+@interface CustomObjectInObjC : NSObject
 
 @property (strong, nonatomic) id someProperty;
 
-- (void) someMethod;
-- (void)enableLoginItemWithURL:(NSURL *)itemURL; 
+- (void) someMethod; 
 
 @end
 
 
-#endif /* LoginItem_h */
+#endif /* CustomObjectInObjC_h */

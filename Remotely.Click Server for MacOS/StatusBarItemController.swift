@@ -18,6 +18,8 @@ class StatusBarItemController: NSObject {
     
     override func awakeFromNib() {
         
+        print("Status bar app created!");
+        
         statusBarItem  = statusBar.statusItem(withLength: NSVariableStatusItemLength);
         statusBarItem.menu = statusBarMenuController.menu;
         statusBarItem.image = #imageLiteral(resourceName: "SatatusBarIcon");
