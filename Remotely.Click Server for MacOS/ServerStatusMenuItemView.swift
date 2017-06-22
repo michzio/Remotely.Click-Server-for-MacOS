@@ -8,17 +8,10 @@
 
 import Cocoa
 
-enum ServerStatus : String {
-    case Down
-    case Running
-    case Starting
-}
-
 protocol ServerStatusMenuItemViewDelegate: class {
     
-    func serverStatusChanged(from fromStatus: ServerStatus, to toStatus: ServerStatus);
+    func shouldServerStatusChange(from fromStatus: ServerStatus, to toStatus: ServerStatus);
 }
-
 
 @IBDesignable
 class ServerStatusMenuItemView: NSView {
@@ -148,15 +141,15 @@ class ServerStatusMenuItemView: NSView {
         switch serverStatus {
             case .Down: // Start
                 serverStatus = .Starting;
-                delegate?.serverStatusChanged(from: .Down, to: .Starting);
+                delegate?.shouldServerStatusChange(from: .Down, to: .Starting);
                 break;
             case .Running: // Stop
                 serverStatus = .Down
-                delegate?.serverStatusChanged(from: .Running, to: .Down);
+                delegate?.shouldServerStatusChange(from: .Running, to: .Down);
                 break;
             case .Starting: // Restart
                 serverStatus = .Starting;
-                delegate?.serverStatusChanged(from: .Starting, to: .Starting);
+                delegate?.shouldServerStatusChange(from: .Starting, to: .Starting);
                 break;
         }
     }

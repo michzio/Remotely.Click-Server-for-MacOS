@@ -8,14 +8,7 @@
 
 import Cocoa
 
-protocol SecurityPreferencesDelegate: class {
- 
-    func shouldUseSecurityPassword(_ should : Bool, value password: String);
-}
-
 class SecurityPreferencesViewController: NSViewController {
-    
-    weak var delegate : SecurityPreferencesDelegate? = nil;
 
     @IBOutlet weak var passwordTextField: NSSecureTextField!
     @IBOutlet weak var confirmPasswordTextField: NSSecureTextField!
@@ -24,7 +17,7 @@ class SecurityPreferencesViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        var currentPassword = UserDefaults.standard.string(forKey:"securityPassword") ?? "";
+        let currentPassword = UserDefaults.standard.string(forKey:"securityPassword") ?? "";
         passwordTextField.stringValue = currentPassword;
         confirmPasswordTextField.stringValue = currentPassword;
     }
@@ -56,8 +49,6 @@ class SecurityPreferencesViewController: NSViewController {
         UserDefaults.standard.set(passwordTextField.stringValue, forKey:"securityPassword");
         UserDefaults.standard.set(true, forKey:"shouldUseSecurityPassword");
         
-        delegate?.shouldUseSecurityPassword(true, value: passwordTextField.stringValue);
-        
         print("Applied password: ", passwordTextField.stringValue);
     }
     
@@ -66,8 +57,6 @@ class SecurityPreferencesViewController: NSViewController {
         
         UserDefaults.standard.set("", forKey: "securityPassword");
         UserDefaults.standard.set(false, forKey: "shouldUseSecurityPassword");
-        
-        delegate?.shouldUseSecurityPassword(false, value: "");
         
         // clear form controls 
         passwordTextField.stringValue = "";

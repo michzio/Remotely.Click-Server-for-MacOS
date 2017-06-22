@@ -11,22 +11,81 @@ import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+
     
+    func testNSDProxy() {
+        
+        // Test invocation of NSDProxyObjC methods.
+         let nsdProxy : NSDProxyObjC = NSDProxyObjC.sharedNSD() as! NSDProxyObjC;
+         nsdProxy.simpleRegisterService(inBackgroundOfType: "_remotely_click._tcp", atPort: CFSwapInt16(59600), withCallback: {
+         (name : String!, regtype : String!, domain : String!, flags : nsd_flags_t) -> Void in
+         
+         print("REGISTERED: ", name, " | ", regtype, " | ", domain);
+         
+         });
+         
+         nsdProxy.browseServices(inBackgroundOfType: "_remotely_click._tcp", inDomain: "local") { (interfaceIdx : UInt32, serviceName: String!, regtype: String!, domain : String!, flags : nsd_flags_t) in
+         
+         if( (flags.rawValue & ADDED.rawValue) > 0) {
+         print("NSD ADDED: ", interfaceIdx, " | ", serviceName, " | ", regtype, " | ", domain);
+         
+         nsdProxy.resolveService(inBackgroundNamed: serviceName, ofType: regtype, inDomain: domain, withInterfaceIdx: interfaceIdx, usingCallback:
+         { (interfaceIdx : UInt32, fullname: String!, hosttarget: String!, port: UInt16, flags: nsd_flags_t) in
+         
+         print("RESOLVED: ", interfaceIdx, " | ", fullname, " | ", hosttarget, " | ", port);
+         
+         if( (flags.rawValue & MORE.rawValue) == 0 ) {
+         fflush(stdout);
+         }
+         });
+         
+         } else if( (flags.rawValue & REMOVED.rawValue) > 0) {
+         print("NSD REMOVED: ", interfaceIdx, " | ", serviceName, " | ", regtype, " | ", domain);
+         }
+         
+         if( (flags.rawValue & MORE.rawValue) == 0) {
+         fflush(stdout);
+         }
+         }
+ 
+    }
+    
+    
+    // MARK: App Delegate - main code
     func applicationWillFinishLaunching(_ notification: Notification) {
         
         ensureSingleInstanceOfThisApp();
     }
-
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
        
         // Insert code here to initialize your application
         firstAppLaunchPreferences();
         print("App started...");
-
+        
+        if(UserDefaults.standard.bool(forKey: "shouldAutoLaunchServer")) {
+            if(UserDefaults.standard.bool(forKey: "shouldUseSecurityPassword")) {
+                ServerManager.sharedInstance.securityPassword = UserDefaults.standard.string(forKey: "securityPassword");
+            } else {
+                ServerManager.sharedInstance.securityPassword = nil;
+            }
+            if(UserDefaults.standard.bool(forKey: "shouldUseCustomPort")) {
+                ServerManager.sharedInstance.customPortNumber = Int( (UserDefaults.standard.string(forKey: "serverPortNumber") ?? "0") );
+            } else {
+                ServerManager.sharedInstance.customPortNumber = nil;
+            }
+            if(UserDefaults.standard.bool(forKey: "shouldAutoDiscoverDevices")) {
+                ServerManager.sharedInstance.discoverableName = UserDefaults.standard.string(forKey: "discoverableName") ?? "";
+            } else {
+                ServerManager.sharedInstance.discoverableName = nil; 
+            }
+            ServerManager.sharedInstance.startServer();
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+         UserDefaults.standard.set("Down", forKey: "serverStatus");
     }
     
     private func firstAppLaunchPreferences() {

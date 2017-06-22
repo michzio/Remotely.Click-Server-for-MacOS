@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		843A97E81ECB77C30094EA99 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A97E71ECB77C30094EA99 /* Cocoa.framework */; };
+		844CFBAA1EEEC26200D6164A /* NSDProxyObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 844CFBA91EEEC26200D6164A /* NSDProxyObjC.m */; };
+		844CFBAE1EF1943000D6164A /* NSDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CFBAD1EF1943000D6164A /* NSDManager.swift */; };
+		844CFBC41EF3CEC800D6164A /* Remotely_Click_Server_for_MacOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CFBC31EF3CEC800D6164A /* Remotely_Click_Server_for_MacOS_Tests.swift */; };
+		844CFBCC1EF4165600D6164A /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CFBCB1EF4165600D6164A /* ServerManager.swift */; };
+		844CFBD11EF98CEA00D6164A /* ConnectedDevicesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CFBD01EF98CE900D6164A /* ConnectedDevicesWindowController.swift */; };
+		844CFBD31EF98D1500D6164A /* ConnectedDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CFBD21EF98D1500D6164A /* ConnectedDevicesViewController.swift */; };
 		845CCFE81ECDC1D20094FE01 /* PreferencesSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CCFE71ECDC1D20094FE01 /* PreferencesSplitViewController.swift */; };
 		845CCFEB1ECDC9F50094FE01 /* PreferencesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CCFEA1ECDC9F50094FE01 /* PreferencesHeaderView.swift */; };
 		845CCFF11ECDDD230094FE01 /* ServerStatusMenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CCFF01ECDDD230094FE01 /* ServerStatusMenuItemView.swift */; };
@@ -21,8 +27,18 @@
 		846408F61ECB1C3700E1CB49 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846408F51ECB1C3700E1CB49 /* AboutWindowController.swift */; };
 		846408FA1ECB1C9E00E1CB49 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846408F91ECB1C9E00E1CB49 /* PreferencesWindowController.swift */; };
 		846408FC1ECB1CDB00E1CB49 /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846408FB1ECB1CDB00E1CB49 /* GeneralPreferencesViewController.swift */; };
+		84B7968B1EE8082A0033941E /* libcomparers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AF050E1EE802B6002D2F10 /* libcomparers.a */; };
+		84B7968D1EE808DC0033941E /* libunit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7968C1EE808DC0033941E /* libunit_tests.a */; };
+		84B7968F1EE820010033941E /* libzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7968E1EE820010033941E /* libzlib.a */; };
+		84B796911EE8205F0033941E /* liblibpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B796901EE8205F0033941E /* liblibpng.a */; };
+		84B796931EE820BD0033941E /* libcollections.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B796921EE820BD0033941E /* libcollections.a */; };
+		84B796951EE8242B0033941E /* libcommon_functions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B796941EE8242B0033941E /* libcommon_functions.a */; };
+		84B796971EE8249C0033941E /* libconcurrency.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B796961EE8249C0033941E /* libconcurrency.a */; };
+		84B796991EE82F830033941E /* libnetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B796981EE82F830033941E /* libnetworking.a */; };
+		84B7969B1EE832630033941E /* libnsd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7969A1EE832630033941E /* libnsd.a */; };
+		84B7969D1EE837560033941E /* librc_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7969C1EE837560033941E /* librc_server.a */; };
 		84C08E3C1ECC51C0009750BD /* LoginItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C08E3B1ECC51C0009750BD /* LoginItemsList.swift */; };
-		84C08E401ECCA7BD009750BD /* CustomObjectInObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C08E3F1ECCA7BD009750BD /* CustomObjectInObjC.m */; };
+		84C08E401ECCA7BD009750BD /* ServerProxyObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C08E3F1ECCA7BD009750BD /* ServerProxyObjC.m */; };
 		84C433641ECB296E00E0CC93 /* NetworkPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C433621ECB296E00E0CC93 /* NetworkPreferencesViewController.swift */; };
 		84C433671ECB299600E0CC93 /* SecurityPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C433661ECB299600E0CC93 /* SecurityPreferencesViewController.swift */; };
 		84C433691ECB2C8800E0CC93 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C433681ECB2C8800E0CC93 /* PreferencesTabViewController.swift */; };
@@ -31,6 +47,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		844CFBC61EF3CEC800D6164A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846408D41ECAE5E300E1CB49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 846408DB1ECAE5E300E1CB49;
+			remoteInfo = "Remotely.Click Server for MacOS";
+		};
 		84EF9CF21ECBA85D00D5C9B9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84EF9CEE1ECBA85C00D5C9B9 /* Remotely Click Server Launcher.xcodeproj */;
@@ -41,6 +64,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		84AF044F1EE5C990002D2F10 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84C4338D1ECB545B00E0CC93 /* Copy Files (1 item) */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,6 +89,15 @@
 
 /* Begin PBXFileReference section */
 		843A97E71ECB77C30094EA99 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		844CFBA91EEEC26200D6164A /* NSDProxyObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDProxyObjC.m; sourceTree = "<group>"; };
+		844CFBAC1EEEC28000D6164A /* NSDProxyObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDProxyObjC.h; sourceTree = "<group>"; };
+		844CFBAD1EF1943000D6164A /* NSDManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDManager.swift; sourceTree = "<group>"; };
+		844CFBC11EF3CEC800D6164A /* Remotely.Click Server for MacOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Remotely.Click Server for MacOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		844CFBC31EF3CEC800D6164A /* Remotely_Click_Server_for_MacOS_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remotely_Click_Server_for_MacOS_Tests.swift; sourceTree = "<group>"; };
+		844CFBC51EF3CEC800D6164A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		844CFBCB1EF4165600D6164A /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		844CFBD01EF98CE900D6164A /* ConnectedDevicesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedDevicesWindowController.swift; sourceTree = "<group>"; };
+		844CFBD21EF98D1500D6164A /* ConnectedDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedDevicesViewController.swift; sourceTree = "<group>"; };
 		845CCFE71ECDC1D20094FE01 /* PreferencesSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesSplitViewController.swift; sourceTree = "<group>"; };
 		845CCFEA1ECDC9F50094FE01 /* PreferencesHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesHeaderView.swift; sourceTree = "<group>"; };
 		845CCFF01ECDDD230094FE01 /* ServerStatusMenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerStatusMenuItemView.swift; sourceTree = "<group>"; };
@@ -71,10 +113,20 @@
 		846408F51ECB1C3700E1CB49 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		846408F91ECB1C9E00E1CB49 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		846408FB1ECB1CDB00E1CB49 /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
+		84AF050E1EE802B6002D2F10 /* libcomparers.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcomparers.a; path = ../../c/comparers/output/unix/lib/static/libcomparers.a; sourceTree = "<group>"; };
+		84B7968C1EE808DC0033941E /* libunit_tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libunit_tests.a; path = ../../c/unit_tests/output/unix/lib/static/libunit_tests.a; sourceTree = "<group>"; };
+		84B7968E1EE820010033941E /* libzlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzlib.a; path = "../../c/zlib-1.2.8/output/unix/lib/static/libzlib.a"; sourceTree = "<group>"; };
+		84B796901EE8205F0033941E /* liblibpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibpng.a; path = "../../c/libpng-1.6.24/output/unix/lib/static/liblibpng.a"; sourceTree = "<group>"; };
+		84B796921EE820BD0033941E /* libcollections.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcollections.a; path = ../../c/collections/output/unix/lib/static/libcollections.a; sourceTree = "<group>"; };
+		84B796941EE8242B0033941E /* libcommon_functions.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_functions.a; path = ../../c/common/output/unix/lib/static/libcommon_functions.a; sourceTree = "<group>"; };
+		84B796961EE8249C0033941E /* libconcurrency.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libconcurrency.a; path = ../../c/concurrency/output/unix/lib/static/libconcurrency.a; sourceTree = "<group>"; };
+		84B796981EE82F830033941E /* libnetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnetworking.a; path = ../../c/networking/output/unix/lib/static/libnetworking.a; sourceTree = "<group>"; };
+		84B7969A1EE832630033941E /* libnsd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnsd.a; path = ../../c/nsd/output/unix/lib/static/libnsd.a; sourceTree = "<group>"; };
+		84B7969C1EE837560033941E /* librc_server.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librc_server.a; path = ../../c/server/output/apple/lib/static/librc_server.a; sourceTree = "<group>"; };
 		84C08E3B1ECC51C0009750BD /* LoginItemsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemsList.swift; sourceTree = "<group>"; };
 		84C08E3E1ECCA7BC009750BD /* Remotely.Click Server for MacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Remotely.Click Server for MacOS-Bridging-Header.h"; sourceTree = "<group>"; };
-		84C08E3F1ECCA7BD009750BD /* CustomObjectInObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomObjectInObjC.m; sourceTree = "<group>"; };
-		84C08E411ECCA81D009750BD /* CustomObjectInObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomObjectInObjC.h; sourceTree = "<group>"; };
+		84C08E3F1ECCA7BD009750BD /* ServerProxyObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerProxyObjC.m; sourceTree = "<group>"; };
+		84C08E411ECCA81D009750BD /* ServerProxyObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerProxyObjC.h; sourceTree = "<group>"; };
 		84C433621ECB296E00E0CC93 /* NetworkPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPreferencesViewController.swift; sourceTree = "<group>"; };
 		84C433661ECB299600E0CC93 /* SecurityPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityPreferencesViewController.swift; sourceTree = "<group>"; };
 		84C433681ECB2C8800E0CC93 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
@@ -84,10 +136,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		844CFBBE1EF3CEC800D6164A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		846408D91ECAE5E300E1CB49 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B7969D1EE837560033941E /* librc_server.a in Frameworks */,
+				84B7969B1EE832630033941E /* libnsd.a in Frameworks */,
+				84B796991EE82F830033941E /* libnetworking.a in Frameworks */,
+				84B796971EE8249C0033941E /* libconcurrency.a in Frameworks */,
+				84B796951EE8242B0033941E /* libcommon_functions.a in Frameworks */,
+				84B7968B1EE8082A0033941E /* libcomparers.a in Frameworks */,
+				84B7968D1EE808DC0033941E /* libunit_tests.a in Frameworks */,
+				84B7968F1EE820010033941E /* libzlib.a in Frameworks */,
+				84B796911EE8205F0033941E /* liblibpng.a in Frameworks */,
+				84B796931EE820BD0033941E /* libcollections.a in Frameworks */,
 				843A97E81ECB77C30094EA99 /* Cocoa.framework in Frameworks */,
 				84C4338B1ECB53C900E0CC93 /* ServiceManagement.framework in Frameworks */,
 			);
@@ -96,11 +165,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		844CFBC21EF3CEC800D6164A /* Remotely.Click Server for MacOS Tests */ = {
+			isa = PBXGroup;
+			children = (
+				844CFBC31EF3CEC800D6164A /* Remotely_Click_Server_for_MacOS_Tests.swift */,
+				844CFBC51EF3CEC800D6164A /* Info.plist */,
+			);
+			path = "Remotely.Click Server for MacOS Tests";
+			sourceTree = "<group>";
+		};
+		844CFBCF1EF98CA700D6164A /* ConnectedDevicesWindow */ = {
+			isa = PBXGroup;
+			children = (
+				844CFBD01EF98CE900D6164A /* ConnectedDevicesWindowController.swift */,
+				844CFBD21EF98D1500D6164A /* ConnectedDevicesViewController.swift */,
+			);
+			name = ConnectedDevicesWindow;
+			sourceTree = "<group>";
+		};
 		846408D31ECAE5E300E1CB49 = {
 			isa = PBXGroup;
 			children = (
 				84EF9CEE1ECBA85C00D5C9B9 /* Remotely Click Server Launcher.xcodeproj */,
 				846408DE1ECAE5E300E1CB49 /* Remotely.Click Server for MacOS */,
+				844CFBC21EF3CEC800D6164A /* Remotely.Click Server for MacOS Tests */,
 				846408DD1ECAE5E300E1CB49 /* Products */,
 				84C433891ECB53C900E0CC93 /* Frameworks */,
 			);
@@ -110,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				846408DC1ECAE5E300E1CB49 /* Remotely.Click Server for MacOS.app */,
+				844CFBC11EF3CEC800D6164A /* Remotely.Click Server for MacOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,6 +206,7 @@
 		846408DE1ECAE5E300E1CB49 /* Remotely.Click Server for MacOS */ = {
 			isa = PBXGroup;
 			children = (
+				844CFBCF1EF98CA700D6164A /* ConnectedDevicesWindow */,
 				84C4338C1ECB53ED00E0CC93 /* Remotely.Click Server for MacOS.entitlements */,
 				846408FD1ECB1CEA00E1CB49 /* StatusBar */,
 				846408F81ECB1C6D00E1CB49 /* PreferencesWindow */,
@@ -133,10 +223,14 @@
 		846408EE1ECAF5EA00E1CB49 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84C08E3B1ECC51C0009750BD /* LoginItemsList.swift */,
 				84C08E3E1ECCA7BC009750BD /* Remotely.Click Server for MacOS-Bridging-Header.h */,
-				84C08E411ECCA81D009750BD /* CustomObjectInObjC.h */,
-				84C08E3F1ECCA7BD009750BD /* CustomObjectInObjC.m */,
+				84C08E3B1ECC51C0009750BD /* LoginItemsList.swift */,
+				84C08E411ECCA81D009750BD /* ServerProxyObjC.h */,
+				84C08E3F1ECCA7BD009750BD /* ServerProxyObjC.m */,
+				844CFBAC1EEEC28000D6164A /* NSDProxyObjC.h */,
+				844CFBA91EEEC26200D6164A /* NSDProxyObjC.m */,
+				844CFBAD1EF1943000D6164A /* NSDManager.swift */,
+				844CFBCB1EF4165600D6164A /* ServerManager.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -178,6 +272,16 @@
 		84C433891ECB53C900E0CC93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84B7969C1EE837560033941E /* librc_server.a */,
+				84B7969A1EE832630033941E /* libnsd.a */,
+				84B796981EE82F830033941E /* libnetworking.a */,
+				84B796961EE8249C0033941E /* libconcurrency.a */,
+				84B796941EE8242B0033941E /* libcommon_functions.a */,
+				84B796921EE820BD0033941E /* libcollections.a */,
+				84B796901EE8205F0033941E /* liblibpng.a */,
+				84B7968E1EE820010033941E /* libzlib.a */,
+				84B7968C1EE808DC0033941E /* libunit_tests.a */,
+				84AF050E1EE802B6002D2F10 /* libcomparers.a */,
 				843A97E71ECB77C30094EA99 /* Cocoa.framework */,
 				84C4338A1ECB53C900E0CC93 /* ServiceManagement.framework */,
 			);
@@ -195,6 +299,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		844CFBC01EF3CEC800D6164A /* Remotely.Click Server for MacOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 844CFBC81EF3CEC800D6164A /* Build configuration list for PBXNativeTarget "Remotely.Click Server for MacOS Tests" */;
+			buildPhases = (
+				844CFBBD1EF3CEC800D6164A /* Sources */,
+				844CFBBE1EF3CEC800D6164A /* Frameworks */,
+				844CFBBF1EF3CEC800D6164A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				844CFBC71EF3CEC800D6164A /* PBXTargetDependency */,
+			);
+			name = "Remotely.Click Server for MacOS Tests";
+			productName = "Remotely.Click Server for MacOS Tests";
+			productReference = 844CFBC11EF3CEC800D6164A /* Remotely.Click Server for MacOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		846408DB1ECAE5E300E1CB49 /* Remotely.Click Server for MacOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 846408EB1ECAE5E300E1CB49 /* Build configuration list for PBXNativeTarget "Remotely.Click Server for MacOS" */;
@@ -203,6 +325,7 @@
 				846408D91ECAE5E300E1CB49 /* Frameworks */,
 				846408DA1ECAE5E300E1CB49 /* Resources */,
 				84C4338D1ECB545B00E0CC93 /* Copy Files (1 item) */,
+				84AF044F1EE5C990002D2F10 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,10 +342,16 @@
 		846408D41ECAE5E300E1CB49 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Michal Ziobro";
 				TargetAttributes = {
+					844CFBC01EF3CEC800D6164A = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = HPA39TCVSP;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 846408DB1ECAE5E300E1CB49;
+					};
 					846408DB1ECAE5E300E1CB49 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = HPA39TCVSP;
@@ -259,6 +388,7 @@
 			projectRoot = "";
 			targets = (
 				846408DB1ECAE5E300E1CB49 /* Remotely.Click Server for MacOS */,
+				844CFBC01EF3CEC800D6164A /* Remotely.Click Server for MacOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,6 +404,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		844CFBBF1EF3CEC800D6164A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		846408DA1ECAE5E300E1CB49 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,29 +424,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		844CFBBD1EF3CEC800D6164A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844CFBC41EF3CEC800D6164A /* Remotely_Click_Server_for_MacOS_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		846408D81ECAE5E300E1CB49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844CFBAE1EF1943000D6164A /* NSDManager.swift in Sources */,
 				84C08E3C1ECC51C0009750BD /* LoginItemsList.swift in Sources */,
+				844CFBD11EF98CEA00D6164A /* ConnectedDevicesWindowController.swift in Sources */,
 				846408FA1ECB1C9E00E1CB49 /* PreferencesWindowController.swift in Sources */,
+				844CFBD31EF98D1500D6164A /* ConnectedDevicesViewController.swift in Sources */,
 				846408F21ECB04BD00E1CB49 /* StatusBarItemController.swift in Sources */,
 				846408F61ECB1C3700E1CB49 /* AboutWindowController.swift in Sources */,
 				846408E21ECAE5E300E1CB49 /* AboutViewController.swift in Sources */,
 				845CCFE81ECDC1D20094FE01 /* PreferencesSplitViewController.swift in Sources */,
 				84C433641ECB296E00E0CC93 /* NetworkPreferencesViewController.swift in Sources */,
-				84C08E401ECCA7BD009750BD /* CustomObjectInObjC.m in Sources */,
+				84C08E401ECCA7BD009750BD /* ServerProxyObjC.m in Sources */,
 				845CCFF11ECDDD230094FE01 /* ServerStatusMenuItemView.swift in Sources */,
 				845CCFEB1ECDC9F50094FE01 /* PreferencesHeaderView.swift in Sources */,
 				84C433691ECB2C8800E0CC93 /* PreferencesTabViewController.swift in Sources */,
 				846408F41ECB04DB00E1CB49 /* StatusBarMenuController.swift in Sources */,
 				846408FC1ECB1CDB00E1CB49 /* GeneralPreferencesViewController.swift in Sources */,
 				846408E01ECAE5E300E1CB49 /* AppDelegate.swift in Sources */,
+				844CFBAA1EEEC26200D6164A /* NSDProxyObjC.m in Sources */,
+				844CFBCC1EF4165600D6164A /* ServerManager.swift in Sources */,
 				84C433671ECB299600E0CC93 /* SecurityPreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		844CFBC71EF3CEC800D6164A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 846408DB1ECAE5E300E1CB49 /* Remotely.Click Server for MacOS */;
+			targetProxy = 844CFBC61EF3CEC800D6164A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		846408E51ECAE5E300E1CB49 /* Main.storyboard */ = {
@@ -323,10 +481,58 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		844CFBC91EF3CEC800D6164A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HPA39TCVSP;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../c/server\"",
+					"\"$(SRCROOT)/../../c/nsd\"",
+				);
+				INFOPLIST_FILE = "Remotely.Click Server for MacOS Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "click.remotely.Remotely-Click-Server-for-MacOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Remotely.Click Server for MacOS/Remotely.Click Server for MacOS-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Remotely.Click Server for MacOS.app/Contents/MacOS/Remotely.Click Server for MacOS";
+			};
+			name = Debug;
+		};
+		844CFBCA1EF3CEC800D6164A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HPA39TCVSP;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../c/server\"",
+					"\"$(SRCROOT)/../../c/nsd\"",
+				);
+				INFOPLIST_FILE = "Remotely.Click Server for MacOS Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "click.remotely.Remotely-Click-Server-for-MacOS-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Remotely.Click Server for MacOS/Remotely.Click Server for MacOS-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Remotely.Click Server for MacOS.app/Contents/MacOS/Remotely.Click Server for MacOS";
+			};
+			name = Release;
+		};
 		846408E91ECAE5E300E1CB49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -364,11 +570,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -376,7 +583,7 @@
 		846408EA1ECAE5E300E1CB49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -408,9 +615,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
@@ -419,18 +627,52 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Remotely.Click Server for MacOS/Remotely.Click Server for MacOS.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../c/comparers\"",
+					"\"$(SRCROOT)/../../c/unit_tests\"",
+					"\"$(SRCROOT)/../../c/zlib-1.2.8\"",
+					"\"$(SRCROOT)/../../c/libpng-1.6.24\"",
+					"\"$(SRCROOT)/../../c/collections\"",
+					"\"$(SRCROOT)/../../c/common\"",
+					"\"$(SRCROOT)/../../c/concurrency\"",
+					"\"$(SRCROOT)/../../c/networking\"",
+					"\"$(SRCROOT)/../../c/nsd\"",
+					"\"$(SRCROOT)/../../c/server\"",
+					/usr/local/include,
+				);
 				INFOPLIST_FILE = "Remotely.Click Server for MacOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					/Users/michzio/Developer/MyProjects/BachelorDegree/c/comparers/output/unix/lib/static,
+					"\"$(SRCROOT)/../../c/unit_tests/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/zlib-1.2.8/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/libpng-1.6.24/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/collections/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/common/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/concurrency/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/networking/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/nsd/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/server/output/apple/lib/static\"",
+					/usr/local/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_LDFLAGS = (
+					"-lopencv_core",
+					"-lopencv_imgproc",
+					"-lopencv_highgui",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "click.remotely.Remotely-Click-Server-for-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Remotely.Click Server for MacOS/Remotely.Click Server for MacOS-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Remotely.Click Server for MacOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -440,18 +682,52 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Remotely.Click Server for MacOS/Remotely.Click Server for MacOS.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../c/comparers\"",
+					"\"$(SRCROOT)/../../c/unit_tests\"",
+					"\"$(SRCROOT)/../../c/zlib-1.2.8\"",
+					"\"$(SRCROOT)/../../c/libpng-1.6.24\"",
+					"\"$(SRCROOT)/../../c/collections\"",
+					"\"$(SRCROOT)/../../c/common\"",
+					"\"$(SRCROOT)/../../c/concurrency\"",
+					"\"$(SRCROOT)/../../c/networking\"",
+					"\"$(SRCROOT)/../../c/nsd\"",
+					"\"$(SRCROOT)/../../c/server\"",
+					/usr/local/include,
+				);
 				INFOPLIST_FILE = "Remotely.Click Server for MacOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					/Users/michzio/Developer/MyProjects/BachelorDegree/c/comparers/output/unix/lib/static,
+					"\"$(SRCROOT)/../../c/unit_tests/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/zlib-1.2.8/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/libpng-1.6.24/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/collections/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/common/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/concurrency/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/networking/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/nsd/output/unix/lib/static\"",
+					"\"$(SRCROOT)/../../c/server/output/apple/lib/static\"",
+					/usr/local/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_LDFLAGS = (
+					"-lopencv_core",
+					"-lopencv_imgproc",
+					"-lopencv_highgui",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "click.remotely.Remotely-Click-Server-for-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Remotely.Click Server for MacOS/Remotely.Click Server for MacOS-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Remotely.Click Server for MacOS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -459,6 +735,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		844CFBC81EF3CEC800D6164A /* Build configuration list for PBXNativeTarget "Remotely.Click Server for MacOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844CFBC91EF3CEC800D6164A /* Debug */,
+				844CFBCA1EF3CEC800D6164A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		846408D71ECAE5E300E1CB49 /* Build configuration list for PBXProject "Remotely.Click Server for MacOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -8,17 +8,9 @@
 
 import Cocoa
 
-protocol NetworkPreferencesDelegate: class {
-    
-    func shouldStartServiceDiscovery(withName discoverableName : String);
-    func shouldStopServiceDiscovery();
-    func shouldServerStatusChange(from fromStatus : ServerStatus, to toStatus : ServerStatus);
-}
-
 class NetworkPreferencesViewController: NSViewController, NSTextFieldDelegate {
     
-    weak var delegate : NetworkPreferencesDelegate? = nil;
-    
+    let serverManager = ServerManager.sharedInstance;
     
     @IBOutlet weak var shouldAutoDiscoverDevices: NSButton!
     @IBOutlet weak var discoverableName: NSTextField! {
@@ -35,7 +27,7 @@ class NetworkPreferencesViewController: NSViewController, NSTextFieldDelegate {
         }
     }
     @IBOutlet weak var shouldUseCustomPort: NSButton!
-    @IBOutlet weak var serverStatus: NSImageView!
+    @IBOutlet weak var serverStatusImageView: NSImageView!
     @IBOutlet weak var listenButton: NSButton!
     
     override func viewDidLoad() {
@@ -43,34 +35,53 @@ class NetworkPreferencesViewController: NSViewController, NSTextFieldDelegate {
         
         shouldAutoDiscoverDevices.state = UserDefaults.standard.bool(forKey: "shouldAutoDiscoverDevices") ? 1 : 0;
         discoverableName.stringValue = UserDefaults.standard.string(forKey: "discoverableName") ?? "";
-        ipAddress.stringValue = UserDefaults.standard.string(forKey: "serverIPAddress") ?? "0.0.0.0";
-        portNumber.stringValue = UserDefaults.standard.string(forKey: "serverPortNumber") ?? "0";
         shouldUseCustomPort.state = UserDefaults.standard.bool(forKey: "shouldUseCustomPort") ? 1 : 0;
         if(shouldUseCustomPort.state == 1) {
             portNumber.isEnabled = true;
+            portNumber.stringValue = UserDefaults.standard.string(forKey: "serverPortNumber") ?? "0";
         } else {
             portNumber.isEnabled = false;
+            portNumber.stringValue = String(serverManager.serverPortNumber ?? 0);
         }
+        ipAddress.stringValue = serverManager.serverIpAddress ?? "0.0.0.0"; 
         
-        loadServerStatusInfo();
+        loadServerStatusInfo(serverStatus: serverManager.serverStatus);
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(serverManagerServerStatusChanged(notification:)), name: ServerManager.ServerStatusChangedNotification, object: nil);
+
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self);
+    }
+    
+    func serverManagerServerStatusChanged(notification : NSNotification) {
+        
+        let userInfo = notification.userInfo as! [String : AnyObject];
+        let serverStatus = userInfo[ServerManager.ServerStatusNotificationKey] as! ServerStatus;
+        let serverPortNumber = userInfo[ServerManager.ServerPortNumberNotificationKey] as! Int;
+        let serverIpAddress = userInfo[ServerManager.ServerIpAddressNotificationKey] as! String;
+        
+        print("Network Preferences View Controller recived Server Status Changed Notification: ", serverStatus.rawValue);
+        
+        loadServerStatusInfo(serverStatus: serverStatus);
+        ipAddress.stringValue = serverIpAddress;
+        portNumber.stringValue = String(serverPortNumber);
         
     }
     
-    private func loadServerStatusInfo() {
+    private func loadServerStatusInfo(serverStatus : ServerStatus) {
         
-        let status = UserDefaults.standard.string(forKey: "serverStatus") ?? "Down";
-        switch status {
-            case "Down":
+        switch (serverStatus) {
+            case .Down:
                 listenButton.title = "Start listening";
-                serverStatus.image = #imageLiteral(resourceName: "RedStatusIcon");
-            case "Starting":
+                serverStatusImageView.image = #imageLiteral(resourceName: "RedStatusIcon");
+            case .Starting:
                 listenButton.title = "Restart";
-                serverStatus.image = #imageLiteral(resourceName: "OrangeStatusIcon");
-            case "Running":
+                serverStatusImageView.image = #imageLiteral(resourceName: "OrangeStatusIcon");
+            case .Running:
                 listenButton.title = "Stop listening";
-                serverStatus.image = #imageLiteral(resourceName: "GreenStatusIcon");
-            default:
-                print("Incorrect server status!");
+                serverStatusImageView.image = #imageLiteral(resourceName: "GreenStatusIcon");
         }
     }
     
@@ -79,33 +90,37 @@ class NetworkPreferencesViewController: NSViewController, NSTextFieldDelegate {
         UserDefaults.standard
             .set(Bool(checkboxButton.state as NSNumber), forKey: "shouldAutoDiscoverDevices");
         
-        if(isServerRunning()) {
-            if(checkboxButton.state == 1) {
-                print("Should start Bonjour service discovery");
-                delegate?.shouldStartServiceDiscovery(withName: discoverableName.stringValue);
-            } else {
-                print("Should stop Bonjuor service discovery");
-                delegate?.shouldStopServiceDiscovery();
+        if(checkboxButton.state == 1) {
+            print("Should start Bonjour service discovery");
+            if(serverManager.serverStatus == .Running) {
+                serverManager.startServiceDiscovery(withName: discoverableName.stringValue);
+            }
+        } else {
+            print("Should stop Bonjuor service discovery");
+            if(serverManager.serverStatus == .Running) {
+                serverManager.stopServiceDiscovery();
             }
         }
     }
     
     @IBAction func useCustomPortCheckboxClick(_ checkboxButton: NSButton) {
         
+        // save new checkbox state in UserDefaults
+        UserDefaults.standard
+            .set(Bool(checkboxButton.state as NSNumber), forKey: "shouldUseCustomPort");
+        
         if(checkboxButton.state == 1) {
             portNumber.isEnabled = true;
         } else {
             portNumber.isEnabled = false;
-            portNumber.stringValue =  "0";
-        }
-        
-        // save new checbox state in UserDefaults 
-        UserDefaults.standard
-            .set(Bool(checkboxButton.state as NSNumber), forKey: "shouldUseCustomPort");
-        
-        if(checkboxButton.state == 0 && isServerActive()) {
-            // ask to restart server
-            askToRestartServer();
+            
+            let serverPort = String(serverManager.serverPortNumber ?? 0);
+            if(serverPort != portNumber.stringValue) {
+                portNumber.stringValue =  serverPort;
+                
+                // ask to restart server
+                if(isServerActive()) { askToRestartServer(); } 
+            }
         }
     }
 
@@ -113,47 +128,63 @@ class NetworkPreferencesViewController: NSViewController, NSTextFieldDelegate {
         
         print("Listen button clicked with label: ", button.title);
         
-        let status = UserDefaults.standard.string(forKey: "serverStatus") ?? "Down";
-        
-        switch ServerStatus(rawValue: status) {
-            case .Running?:
+        switch serverManager.serverStatus {
+            case .Running:
                 button.title = "Start Listening";
-                serverStatus.image = #imageLiteral(resourceName: "RedStatusIcon");
-                delegate?.shouldServerStatusChange(from: .Running, to: .Down);
+                serverStatusImageView.image = #imageLiteral(resourceName: "RedStatusIcon");
+                serverManager.securityPassword = nil;
+                serverManager.customPortNumber = nil;
+                serverManager.serverStatus = .Down;
                 break;
-            case .Starting?:
+            case .Starting:
                 // keep starting again
-                delegate?.shouldServerStatusChange(from: .Starting, to: .Starting);
+                if(UserDefaults.standard.bool(forKey: "shouldUseSecurityPassword")) {
+                    serverManager.securityPassword = UserDefaults.standard.string(forKey: "securityPassword");
+                } else {
+                    serverManager.securityPassword = nil;
+                }
+                if(UserDefaults.standard.bool(forKey: "shouldUseCustomPort")) {
+                    serverManager.customPortNumber = Int( (UserDefaults.standard.string(forKey: "serverPortNumber") ?? "0") );
+                } else {
+                    serverManager.customPortNumber = nil;
+                }
+                if(UserDefaults.standard.bool(forKey: "shouldAutoDiscoverDevices")) {
+                    serverManager.discoverableName = UserDefaults.standard.string(forKey: "discoverableName") ?? "";
+                } else {
+                    serverManager.discoverableName = nil;
+                }
+                serverManager.serverStatus = .Starting;
                 break;
-            case .Down?:
+            case .Down:
                 button.title = "Restart"
-                serverStatus.image = #imageLiteral(resourceName: "OrangeStatusIcon");
-                delegate?.shouldServerStatusChange(from: .Down, to: .Starting);
-                break;
-            default:
-                print("Incorrect server status!");
+                serverStatusImageView.image = #imageLiteral(resourceName: "OrangeStatusIcon");
+                if(UserDefaults.standard.bool(forKey: "shouldUseSecurityPassword")) {
+                    serverManager.securityPassword = UserDefaults.standard.string(forKey: "securityPassword");
+                } else {
+                    serverManager.securityPassword = nil;
+                }
+                if(UserDefaults.standard.bool(forKey: "shouldUseCustomPort")) {
+                    serverManager.customPortNumber = Int( (UserDefaults.standard.string(forKey: "serverPortNumber") ?? "0") );
+                } else {
+                    serverManager.customPortNumber = nil;
+                }
+                if(UserDefaults.standard.bool(forKey: "shouldAutoDiscoverDevices")) {
+                    serverManager.discoverableName = UserDefaults.standard.string(forKey: "discoverableName") ?? "";
+                } else {
+                    serverManager.discoverableName = nil;
+                }
+                serverManager.serverStatus = .Starting;
                 break;
         }
     }
     
     private func isServerActive() -> Bool {
-        let status = UserDefaults.standard.string(forKey: "serverStatus");
-        if(status == "Running" || status == "Starting") {
+    
+        if(serverManager.serverStatus == .Running
+                || serverManager.serverStatus == .Starting) {
             return true;
         }
         return false;
-    }
-    
-    private func isServerRunning() -> Bool {
-        let status = UserDefaults.standard.string(forKey: "serverStatus");
-        if(status == "Running") {
-            return true;
-        }
-        return false;
-    }
-    
-    private func isDevicesAutoDiscoveryActive() -> Bool {
-        return UserDefaults.standard.bool(forKey: "isDevicesAutoDiscoverActive");
     }
     
     private func askToRestartServer() {
@@ -166,13 +197,27 @@ class NetworkPreferencesViewController: NSViewController, NSTextFieldDelegate {
         if( alert.runModal() == NSAlertFirstButtonReturn) {
             print("Should restart server with new configuration.");
             listenButton.title = "Restart"
-            serverStatus.image = #imageLiteral(resourceName: "OrangeStatusIcon");
-            delegate?.shouldServerStatusChange(from: .Running, to: .Starting);
+            serverStatusImageView.image = #imageLiteral(resourceName: "OrangeStatusIcon");
+            if(UserDefaults.standard.bool(forKey: "shouldUseSecurityPassword")) {
+                serverManager.securityPassword = UserDefaults.standard.string(forKey: "securityPassword");
+            } else {
+                serverManager.securityPassword = nil;
+            }
+            if(UserDefaults.standard.bool(forKey: "shouldUseCustomPort")) {
+                serverManager.customPortNumber = Int( (UserDefaults.standard.string(forKey: "serverPortNumber") ?? "0") );
+            } else {
+                serverManager.customPortNumber = nil;
+            }
+            if(UserDefaults.standard.bool(forKey: "shouldAutoDiscoverDevices")) {
+                serverManager.discoverableName = UserDefaults.standard.string(forKey: "discoverableName") ?? "";
+            } else {
+                serverManager.discoverableName = nil;
+            }
+            serverManager.serverStatus = .Starting;
         }
     }
     
-    
-    // Delegate methods
+    // NSTextField Delegate Methods
     
     // on TextField end of edition
     func control(_ control: NSControl,
@@ -184,11 +229,8 @@ class NetworkPreferencesViewController: NSViewController, NSTextFieldDelegate {
             UserDefaults.standard
                 .set(discoverableName.stringValue, forKey: "discoverableName");
         
-            if(isDevicesAutoDiscoveryActive()) {
-                print("Should restart Bonjour service discovery with new name");
-                delegate?.shouldStopServiceDiscovery();
-                delegate?.shouldStartServiceDiscovery(withName: discoverableName.stringValue);
-            }
+            print("Should restart Bonjour service discovery with new name");
+            serverManager.restartServiceDiscovery(withName: discoverableName.stringValue);
         }
         
         if(control == portNumber) {
