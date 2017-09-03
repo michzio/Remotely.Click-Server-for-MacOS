@@ -107,7 +107,7 @@ class ServerManager : NSObject, ServerProxyDelegate, NSDManagerDelegate {
         serverProxy.delegate = self;
         if(customPortNumber != nil) { serverProxy.setCustomPortNumber(Int32(customPortNumber)); }
         if(securityPassword != nil) { serverProxy.setSecurityPassword(securityPassword); }
-        serverProxy.startServer(inBackgroundOf: ECHO_SERVER);
+        serverProxy.startServer(inBackgroundOf: RPC_SERVER);
     }
     
     func endServer() -> Void {
@@ -151,7 +151,7 @@ class ServerManager : NSObject, ServerProxyDelegate, NSDManagerDelegate {
         if(isRegisteredForNetworkDiscovery) {
             // then restart network service discovery
             stopServiceDiscovery();
-            startServiceDiscovery(withName: name); 
+            startServiceDiscovery(withName: name);
         }
         
     }
@@ -267,18 +267,17 @@ class ServerManager : NSObject, ServerProxyDelegate, NSDManagerDelegate {
     
     // MARK: NSDManager Delegate Methods
     func serviceRegistered(_ service: NetService) {
-        DispatchQueue.main.async {
-            print("Service registered: ", service);
-            self.isRegisteredForNetworkDiscovery = true;
-        }
+        
+        print("Service registered: ", service);
+        self.isRegisteredForNetworkDiscovery = true;
+    
     }
     
     func serviceUnregistered(_ service: NetService) {
      
-        DispatchQueue.main.async {
-            print("Service unregistered: ", service);
-            self.isRegisteredForNetworkDiscovery = false;
-        }
+        print("Service unregistered: ", service);
+        self.isRegisteredForNetworkDiscovery = false;
+    
     }
     
     func serviceAdded(_ service: NetService, moreComing more: Bool) {

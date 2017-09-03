@@ -101,9 +101,10 @@ class StatusBarMenuController: NSObject, ServerStatusMenuItemViewDelegate {
         let userInfo = notification.userInfo as! [String : AnyObject];
         let clientConnSock = userInfo[ServerManager.ClientConnSockNotificationKey] as! SockFD;
         
-        let connectedDeviceMenuItem : NSMenuItem = connectedDeviceMenuItems[clientConnSock]!;
+        if let connectedDeviceMenuItem : NSMenuItem = connectedDeviceMenuItems[clientConnSock] {
         
-        menu.removeItem(connectedDeviceMenuItem);
+            self.menu.removeItem(connectedDeviceMenuItem);
+        }
         
         connectedDeviceMenuItems.removeValue(forKey: clientConnSock);
         

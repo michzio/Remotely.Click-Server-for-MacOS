@@ -134,4 +134,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 }
-

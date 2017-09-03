@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		843A97E81ECB77C30094EA99 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A97E71ECB77C30094EA99 /* Cocoa.framework */; };
+		843A97E81ECB77C30094EA99 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A97E71ECB77C30094EA99 /* Cocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		844CFBAA1EEEC26200D6164A /* NSDProxyObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 844CFBA91EEEC26200D6164A /* NSDProxyObjC.m */; };
 		844CFBAE1EF1943000D6164A /* NSDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CFBAD1EF1943000D6164A /* NSDManager.swift */; };
 		844CFBC41EF3CEC800D6164A /* Remotely_Click_Server_for_MacOS_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CFBC31EF3CEC800D6164A /* Remotely_Click_Server_for_MacOS_Tests.swift */; };
@@ -27,22 +27,43 @@
 		846408F61ECB1C3700E1CB49 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846408F51ECB1C3700E1CB49 /* AboutWindowController.swift */; };
 		846408FA1ECB1C9E00E1CB49 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846408F91ECB1C9E00E1CB49 /* PreferencesWindowController.swift */; };
 		846408FC1ECB1CDB00E1CB49 /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846408FB1ECB1CDB00E1CB49 /* GeneralPreferencesViewController.swift */; };
-		84B7968B1EE8082A0033941E /* libcomparers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AF050E1EE802B6002D2F10 /* libcomparers.a */; };
-		84B7968D1EE808DC0033941E /* libunit_tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7968C1EE808DC0033941E /* libunit_tests.a */; };
-		84B7968F1EE820010033941E /* libzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7968E1EE820010033941E /* libzlib.a */; };
-		84B796911EE8205F0033941E /* liblibpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B796901EE8205F0033941E /* liblibpng.a */; };
-		84B796931EE820BD0033941E /* libcollections.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B796921EE820BD0033941E /* libcollections.a */; };
-		84B796951EE8242B0033941E /* libcommon_functions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B796941EE8242B0033941E /* libcommon_functions.a */; };
-		84B796971EE8249C0033941E /* libconcurrency.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B796961EE8249C0033941E /* libconcurrency.a */; };
-		84B796991EE82F830033941E /* libnetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B796981EE82F830033941E /* libnetworking.a */; };
-		84B7969B1EE832630033941E /* libnsd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7969A1EE832630033941E /* libnsd.a */; };
-		84B7969D1EE837560033941E /* librc_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7969C1EE837560033941E /* librc_server.a */; };
+		84A087D91F4BAD4D00AF12E6 /* application_hotkeys.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84A087D61F4BAD4D00AF12E6 /* application_hotkeys.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84A087DA1F4BAD4D00AF12E6 /* default_symbolic_hotkeys.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84A087D71F4BAD4D00AF12E6 /* default_symbolic_hotkeys.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84A087DB1F4BAD4D00AF12E6 /* system_hotkeys.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84A087D81F4BAD4D00AF12E6 /* system_hotkeys.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		84C08E3C1ECC51C0009750BD /* LoginItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C08E3B1ECC51C0009750BD /* LoginItemsList.swift */; };
 		84C08E401ECCA7BD009750BD /* ServerProxyObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C08E3F1ECCA7BD009750BD /* ServerProxyObjC.m */; };
 		84C433641ECB296E00E0CC93 /* NetworkPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C433621ECB296E00E0CC93 /* NetworkPreferencesViewController.swift */; };
 		84C433671ECB299600E0CC93 /* SecurityPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C433661ECB299600E0CC93 /* SecurityPreferencesViewController.swift */; };
 		84C433691ECB2C8800E0CC93 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C433681ECB2C8800E0CC93 /* PreferencesTabViewController.swift */; };
-		84C4338B1ECB53C900E0CC93 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C4338A1ECB53C900E0CC93 /* ServiceManagement.framework */; };
+		84C4338B1ECB53C900E0CC93 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C4338A1ECB53C900E0CC93 /* ServiceManagement.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44C01F436D9300C86D73 /* libmouse_events.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44BF1F436D9300C86D73 /* libmouse_events.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44C21F436DB300C86D73 /* libkeyboard_events.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44C11F436DB300C86D73 /* libkeyboard_events.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44C41F436E2E00C86D73 /* libcocoa_helper.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44C31F436E2E00C86D73 /* libcocoa_helper.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44C61F436E5000C86D73 /* libautomation_scripts.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44C51F436E5000C86D73 /* libautomation_scripts.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44C81F436E7500C86D73 /* libzlib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44C71F436E7500C86D73 /* libzlib.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44CA1F436E9600C86D73 /* liblibpng.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44C91F436E9600C86D73 /* liblibpng.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44CC1F436EBA00C86D73 /* libcomparers.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44CB1F436EBA00C86D73 /* libcomparers.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44CE1F436ED300C86D73 /* libunit_tests.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44CD1F436ED300C86D73 /* libunit_tests.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44D01F436EEC00C86D73 /* libnsd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44CF1F436EEC00C86D73 /* libnsd.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44D21F436F0100C86D73 /* libnetworking.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44D11F436F0100C86D73 /* libnetworking.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44D41F436F1500C86D73 /* libcollections.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44D31F436F1500C86D73 /* libcollections.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44D61F436F8300C86D73 /* librc_server.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44D51F436F8300C86D73 /* librc_server.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44D81F436FAD00C86D73 /* libconcurrency.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44D71F436FAD00C86D73 /* libconcurrency.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		84DF44E01F43847500C86D73 /* libconcurrency.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44D71F436FAD00C86D73 /* libconcurrency.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44E11F43847500C86D73 /* librc_server.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44D51F436F8300C86D73 /* librc_server.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44E21F43847500C86D73 /* libcollections.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44D31F436F1500C86D73 /* libcollections.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44E31F43847500C86D73 /* libnetworking.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44D11F436F0100C86D73 /* libnetworking.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44E41F43847500C86D73 /* libnsd.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44CF1F436EEC00C86D73 /* libnsd.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44E51F43847500C86D73 /* libunit_tests.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44CD1F436ED300C86D73 /* libunit_tests.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44E61F43847500C86D73 /* libcomparers.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44CB1F436EBA00C86D73 /* libcomparers.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44E71F43847500C86D73 /* liblibpng.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44C91F436E9600C86D73 /* liblibpng.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44E81F43847500C86D73 /* libzlib.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44C71F436E7500C86D73 /* libzlib.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44E91F43847500C86D73 /* libautomation_scripts.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44C51F436E5000C86D73 /* libautomation_scripts.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44EA1F43847500C86D73 /* libcocoa_helper.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44C31F436E2E00C86D73 /* libcocoa_helper.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44EB1F43847500C86D73 /* libkeyboard_events.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44C11F436DB300C86D73 /* libkeyboard_events.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44EC1F43847500C86D73 /* libmouse_events.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44BF1F436D9300C86D73 /* libmouse_events.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84DF44EE1F4384A300C86D73 /* libcommon_functions.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44ED1F4384A300C86D73 /* libcommon_functions.dylib */; };
+		84DF44EF1F4384B000C86D73 /* libcommon_functions.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84DF44ED1F4384A300C86D73 /* libcommon_functions.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		84EF9CF51ECBA88100D5C9B9 /* Remotely Click Server Launcher.app in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = 84EF9CF31ECBA85D00D5C9B9 /* Remotely Click Server Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -64,12 +85,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		84AF044F1EE5C990002D2F10 /* Embed Frameworks */ = {
+		84A087C01F4B07B800AF12E6 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 7;
 			files = (
+				84A087D91F4BAD4D00AF12E6 /* application_hotkeys.plist in CopyFiles */,
+				84A087DA1F4BAD4D00AF12E6 /* default_symbolic_hotkeys.plist in CopyFiles */,
+				84A087DB1F4BAD4D00AF12E6 /* system_hotkeys.plist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84AF044F1EE5C990002D2F10 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/RemoteControllerAPI_Server;
+			dstSubfolderSpec = 1;
+			files = (
+				84DF44EF1F4384B000C86D73 /* libcommon_functions.dylib in Embed Frameworks */,
+				84DF44E01F43847500C86D73 /* libconcurrency.dylib in Embed Frameworks */,
+				84DF44E11F43847500C86D73 /* librc_server.dylib in Embed Frameworks */,
+				84DF44E21F43847500C86D73 /* libcollections.dylib in Embed Frameworks */,
+				84DF44E31F43847500C86D73 /* libnetworking.dylib in Embed Frameworks */,
+				84DF44E41F43847500C86D73 /* libnsd.dylib in Embed Frameworks */,
+				84DF44E51F43847500C86D73 /* libunit_tests.dylib in Embed Frameworks */,
+				84DF44E61F43847500C86D73 /* libcomparers.dylib in Embed Frameworks */,
+				84DF44E71F43847500C86D73 /* liblibpng.dylib in Embed Frameworks */,
+				84DF44E81F43847500C86D73 /* libzlib.dylib in Embed Frameworks */,
+				84DF44E91F43847500C86D73 /* libautomation_scripts.dylib in Embed Frameworks */,
+				84DF44EA1F43847500C86D73 /* libcocoa_helper.dylib in Embed Frameworks */,
+				84DF44EB1F43847500C86D73 /* libkeyboard_events.dylib in Embed Frameworks */,
+				84DF44EC1F43847500C86D73 /* libmouse_events.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,16 +160,9 @@
 		846408F51ECB1C3700E1CB49 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		846408F91ECB1C9E00E1CB49 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		846408FB1ECB1CDB00E1CB49 /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
-		84AF050E1EE802B6002D2F10 /* libcomparers.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcomparers.a; path = ../../c/comparers/output/unix/lib/static/libcomparers.a; sourceTree = "<group>"; };
-		84B7968C1EE808DC0033941E /* libunit_tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libunit_tests.a; path = ../../c/unit_tests/output/unix/lib/static/libunit_tests.a; sourceTree = "<group>"; };
-		84B7968E1EE820010033941E /* libzlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzlib.a; path = "../../c/zlib-1.2.8/output/unix/lib/static/libzlib.a"; sourceTree = "<group>"; };
-		84B796901EE8205F0033941E /* liblibpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibpng.a; path = "../../c/libpng-1.6.24/output/unix/lib/static/liblibpng.a"; sourceTree = "<group>"; };
-		84B796921EE820BD0033941E /* libcollections.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcollections.a; path = ../../c/collections/output/unix/lib/static/libcollections.a; sourceTree = "<group>"; };
-		84B796941EE8242B0033941E /* libcommon_functions.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon_functions.a; path = ../../c/common/output/unix/lib/static/libcommon_functions.a; sourceTree = "<group>"; };
-		84B796961EE8249C0033941E /* libconcurrency.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libconcurrency.a; path = ../../c/concurrency/output/unix/lib/static/libconcurrency.a; sourceTree = "<group>"; };
-		84B796981EE82F830033941E /* libnetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnetworking.a; path = ../../c/networking/output/unix/lib/static/libnetworking.a; sourceTree = "<group>"; };
-		84B7969A1EE832630033941E /* libnsd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libnsd.a; path = ../../c/nsd/output/unix/lib/static/libnsd.a; sourceTree = "<group>"; };
-		84B7969C1EE837560033941E /* librc_server.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librc_server.a; path = ../../c/server/output/apple/lib/static/librc_server.a; sourceTree = "<group>"; };
+		84A087D61F4BAD4D00AF12E6 /* application_hotkeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = application_hotkeys.plist; path = ../../c/system/OS_X/keyboard_events/resources/application_hotkeys.plist; sourceTree = "<group>"; };
+		84A087D71F4BAD4D00AF12E6 /* default_symbolic_hotkeys.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = default_symbolic_hotkeys.plist; path = ../../c/system/OS_X/keyboard_events/resources/default_symbolic_hotkeys.plist; sourceTree = "<group>"; };
+		84A087D81F4BAD4D00AF12E6 /* system_hotkeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = system_hotkeys.plist; path = ../../c/system/OS_X/keyboard_events/resources/system_hotkeys.plist; sourceTree = "<group>"; };
 		84C08E3B1ECC51C0009750BD /* LoginItemsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemsList.swift; sourceTree = "<group>"; };
 		84C08E3E1ECCA7BC009750BD /* Remotely.Click Server for MacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Remotely.Click Server for MacOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		84C08E3F1ECCA7BD009750BD /* ServerProxyObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerProxyObjC.m; sourceTree = "<group>"; };
@@ -131,7 +171,20 @@
 		84C433661ECB299600E0CC93 /* SecurityPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityPreferencesViewController.swift; sourceTree = "<group>"; };
 		84C433681ECB2C8800E0CC93 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		84C4338A1ECB53C900E0CC93 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
-		84C4338C1ECB53ED00E0CC93 /* Remotely.Click Server for MacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Remotely.Click Server for MacOS.entitlements"; sourceTree = "<group>"; };
+		84DF44BF1F436D9300C86D73 /* libmouse_events.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmouse_events.dylib; path = ../../c/system/OS_X/mouse_events/outputs/lib/apple/libmouse_events.dylib; sourceTree = "<group>"; };
+		84DF44C11F436DB300C86D73 /* libkeyboard_events.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libkeyboard_events.dylib; path = ../../c/system/OS_X/keyboard_events/outputs/lib/apple/libkeyboard_events.dylib; sourceTree = "<group>"; };
+		84DF44C31F436E2E00C86D73 /* libcocoa_helper.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcocoa_helper.dylib; path = ../../c/system/OS_X/cocoa_helper/outputs/lib/apple/libcocoa_helper.dylib; sourceTree = "<group>"; };
+		84DF44C51F436E5000C86D73 /* libautomation_scripts.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libautomation_scripts.dylib; path = ../../c/system/OS_X/automation_scripts/outputs/lib/apple/libautomation_scripts.dylib; sourceTree = "<group>"; };
+		84DF44C71F436E7500C86D73 /* libzlib.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libzlib.dylib; path = "../../c/zlib-1.2.8/outputs/lib/apple/libzlib.dylib"; sourceTree = "<group>"; };
+		84DF44C91F436E9600C86D73 /* liblibpng.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblibpng.dylib; path = "../../c/libpng-1.6.24/outputs/lib/apple/liblibpng.dylib"; sourceTree = "<group>"; };
+		84DF44CB1F436EBA00C86D73 /* libcomparers.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcomparers.dylib; path = ../../c/comparers/outputs/lib/apple/libcomparers.dylib; sourceTree = "<group>"; };
+		84DF44CD1F436ED300C86D73 /* libunit_tests.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libunit_tests.dylib; path = ../../c/unit_tests/outputs/lib/apple/libunit_tests.dylib; sourceTree = "<group>"; };
+		84DF44CF1F436EEC00C86D73 /* libnsd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libnsd.dylib; path = ../../c/nsd/outputs/lib/apple/libnsd.dylib; sourceTree = "<group>"; };
+		84DF44D11F436F0100C86D73 /* libnetworking.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libnetworking.dylib; path = ../../c/networking/outputs/lib/apple/libnetworking.dylib; sourceTree = "<group>"; };
+		84DF44D31F436F1500C86D73 /* libcollections.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcollections.dylib; path = ../../c/collections/outputs/lib/apple/libcollections.dylib; sourceTree = "<group>"; };
+		84DF44D51F436F8300C86D73 /* librc_server.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librc_server.dylib; path = ../../c/server/outputs/lib/apple/librc_server.dylib; sourceTree = "<group>"; };
+		84DF44D71F436FAD00C86D73 /* libconcurrency.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libconcurrency.dylib; path = ../../c/concurrency/outputs/lib/apple/libconcurrency.dylib; sourceTree = "<group>"; };
+		84DF44ED1F4384A300C86D73 /* libcommon_functions.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommon_functions.dylib; path = ../../c/common/outputs/lib/apple/libcommon_functions.dylib; sourceTree = "<group>"; };
 		84EF9CEE1ECBA85C00D5C9B9 /* Remotely Click Server Launcher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Remotely Click Server Launcher.xcodeproj"; path = "Remotely Click Server Launcher/Remotely Click Server Launcher.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,16 +200,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B7969D1EE837560033941E /* librc_server.a in Frameworks */,
-				84B7969B1EE832630033941E /* libnsd.a in Frameworks */,
-				84B796991EE82F830033941E /* libnetworking.a in Frameworks */,
-				84B796971EE8249C0033941E /* libconcurrency.a in Frameworks */,
-				84B796951EE8242B0033941E /* libcommon_functions.a in Frameworks */,
-				84B7968B1EE8082A0033941E /* libcomparers.a in Frameworks */,
-				84B7968D1EE808DC0033941E /* libunit_tests.a in Frameworks */,
-				84B7968F1EE820010033941E /* libzlib.a in Frameworks */,
-				84B796911EE8205F0033941E /* liblibpng.a in Frameworks */,
-				84B796931EE820BD0033941E /* libcollections.a in Frameworks */,
+				84DF44EE1F4384A300C86D73 /* libcommon_functions.dylib in Frameworks */,
+				84DF44D81F436FAD00C86D73 /* libconcurrency.dylib in Frameworks */,
+				84DF44D61F436F8300C86D73 /* librc_server.dylib in Frameworks */,
+				84DF44D41F436F1500C86D73 /* libcollections.dylib in Frameworks */,
+				84DF44D21F436F0100C86D73 /* libnetworking.dylib in Frameworks */,
+				84DF44D01F436EEC00C86D73 /* libnsd.dylib in Frameworks */,
+				84DF44CE1F436ED300C86D73 /* libunit_tests.dylib in Frameworks */,
+				84DF44CC1F436EBA00C86D73 /* libcomparers.dylib in Frameworks */,
+				84DF44CA1F436E9600C86D73 /* liblibpng.dylib in Frameworks */,
+				84DF44C81F436E7500C86D73 /* libzlib.dylib in Frameworks */,
+				84DF44C61F436E5000C86D73 /* libautomation_scripts.dylib in Frameworks */,
+				84DF44C41F436E2E00C86D73 /* libcocoa_helper.dylib in Frameworks */,
+				84DF44C21F436DB300C86D73 /* libkeyboard_events.dylib in Frameworks */,
+				84DF44C01F436D9300C86D73 /* libmouse_events.dylib in Frameworks */,
 				843A97E81ECB77C30094EA99 /* Cocoa.framework in Frameworks */,
 				84C4338B1ECB53C900E0CC93 /* ServiceManagement.framework in Frameworks */,
 			);
@@ -186,6 +243,9 @@
 		846408D31ECAE5E300E1CB49 = {
 			isa = PBXGroup;
 			children = (
+				84A087D61F4BAD4D00AF12E6 /* application_hotkeys.plist */,
+				84A087D71F4BAD4D00AF12E6 /* default_symbolic_hotkeys.plist */,
+				84A087D81F4BAD4D00AF12E6 /* system_hotkeys.plist */,
 				84EF9CEE1ECBA85C00D5C9B9 /* Remotely Click Server Launcher.xcodeproj */,
 				846408DE1ECAE5E300E1CB49 /* Remotely.Click Server for MacOS */,
 				844CFBC21EF3CEC800D6164A /* Remotely.Click Server for MacOS Tests */,
@@ -207,7 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				844CFBCF1EF98CA700D6164A /* ConnectedDevicesWindow */,
-				84C4338C1ECB53ED00E0CC93 /* Remotely.Click Server for MacOS.entitlements */,
 				846408FD1ECB1CEA00E1CB49 /* StatusBar */,
 				846408F81ECB1C6D00E1CB49 /* PreferencesWindow */,
 				846408F71ECB1C4600E1CB49 /* AboutWindow */,
@@ -272,16 +331,20 @@
 		84C433891ECB53C900E0CC93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84B7969C1EE837560033941E /* librc_server.a */,
-				84B7969A1EE832630033941E /* libnsd.a */,
-				84B796981EE82F830033941E /* libnetworking.a */,
-				84B796961EE8249C0033941E /* libconcurrency.a */,
-				84B796941EE8242B0033941E /* libcommon_functions.a */,
-				84B796921EE820BD0033941E /* libcollections.a */,
-				84B796901EE8205F0033941E /* liblibpng.a */,
-				84B7968E1EE820010033941E /* libzlib.a */,
-				84B7968C1EE808DC0033941E /* libunit_tests.a */,
-				84AF050E1EE802B6002D2F10 /* libcomparers.a */,
+				84DF44ED1F4384A300C86D73 /* libcommon_functions.dylib */,
+				84DF44D71F436FAD00C86D73 /* libconcurrency.dylib */,
+				84DF44D51F436F8300C86D73 /* librc_server.dylib */,
+				84DF44D31F436F1500C86D73 /* libcollections.dylib */,
+				84DF44D11F436F0100C86D73 /* libnetworking.dylib */,
+				84DF44CF1F436EEC00C86D73 /* libnsd.dylib */,
+				84DF44CD1F436ED300C86D73 /* libunit_tests.dylib */,
+				84DF44CB1F436EBA00C86D73 /* libcomparers.dylib */,
+				84DF44C91F436E9600C86D73 /* liblibpng.dylib */,
+				84DF44C71F436E7500C86D73 /* libzlib.dylib */,
+				84DF44C51F436E5000C86D73 /* libautomation_scripts.dylib */,
+				84DF44C31F436E2E00C86D73 /* libcocoa_helper.dylib */,
+				84DF44C11F436DB300C86D73 /* libkeyboard_events.dylib */,
+				84DF44BF1F436D9300C86D73 /* libmouse_events.dylib */,
 				843A97E71ECB77C30094EA99 /* Cocoa.framework */,
 				84C4338A1ECB53C900E0CC93 /* ServiceManagement.framework */,
 			);
@@ -325,6 +388,7 @@
 				846408D91ECAE5E300E1CB49 /* Frameworks */,
 				846408DA1ECAE5E300E1CB49 /* Resources */,
 				84C4338D1ECB545B00E0CC93 /* Copy Files (1 item) */,
+				84A087C01F4B07B800AF12E6 /* CopyFiles */,
 				84AF044F1EE5C990002D2F10 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -359,7 +423,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.iCloud = {
 								enabled = 0;
@@ -626,39 +690,45 @@
 		846408EC1ECAE5E300E1CB49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Remotely.Click Server for MacOS/Remotely.Click Server for MacOS.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../c/comparers\"",
-					"\"$(SRCROOT)/../../c/unit_tests\"",
-					"\"$(SRCROOT)/../../c/zlib-1.2.8\"",
-					"\"$(SRCROOT)/../../c/libpng-1.6.24\"",
-					"\"$(SRCROOT)/../../c/collections\"",
-					"\"$(SRCROOT)/../../c/common\"",
-					"\"$(SRCROOT)/../../c/concurrency\"",
-					"\"$(SRCROOT)/../../c/networking\"",
-					"\"$(SRCROOT)/../../c/nsd\"",
-					"\"$(SRCROOT)/../../c/server\"",
+					"\"$(SRCROOT)/../../c/comparers/include\"",
+					"\"$(SRCROOT)/../../c/unit_tests/include\"",
+					"\"$(SRCROOT)/../../c/zlib-1.2.8/include\"",
+					"\"$(SRCROOT)/../../c/libpng-1.6.24/include\"",
+					"\"$(SRCROOT)/../../c/collections/include\"",
+					"\"$(SRCROOT)/../../c/common/libraries\"",
+					"\"$(SRCROOT)/../../c/common/include\"",
+					"\"$(SRCROOT)/../../c/concurrency/include\"",
+					"\"$(SRCROOT)/../../c/networking/include\"",
+					"\"$(SRCROOT)/../../c/nsd/include\"",
+					"\"$(SRCROOT)/../../c/server/include\"",
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "Remotely.Click Server for MacOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../Library/RemoteControllerAPI_Server";
 				LIBRARY_SEARCH_PATHS = (
-					/Users/michzio/Developer/MyProjects/BachelorDegree/c/comparers/output/unix/lib/static,
-					"\"$(SRCROOT)/../../c/unit_tests/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/zlib-1.2.8/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/libpng-1.6.24/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/collections/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/common/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/concurrency/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/networking/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/nsd/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/server/output/apple/lib/static\"",
+					"\"$(SRCROOT)/../../c/common/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/concurrency/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/server/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/comparers/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/unit_tests/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/zlib-1.2.8/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/libpng-1.6.24/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/collections/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/networking/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/nsd/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/system/OS_X/automation_scripts/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/system/OS_X/cocoa_helper/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/system/OS_X/keyboard_events/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/system/OS_X/mouse_events/outputs/lib/apple\"",
 					/usr/local/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -681,39 +751,45 @@
 		846408ED1ECAE5E300E1CB49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Remotely.Click Server for MacOS/Remotely.Click Server for MacOS.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../c/comparers\"",
-					"\"$(SRCROOT)/../../c/unit_tests\"",
-					"\"$(SRCROOT)/../../c/zlib-1.2.8\"",
-					"\"$(SRCROOT)/../../c/libpng-1.6.24\"",
-					"\"$(SRCROOT)/../../c/collections\"",
-					"\"$(SRCROOT)/../../c/common\"",
-					"\"$(SRCROOT)/../../c/concurrency\"",
-					"\"$(SRCROOT)/../../c/networking\"",
-					"\"$(SRCROOT)/../../c/nsd\"",
-					"\"$(SRCROOT)/../../c/server\"",
+					"\"$(SRCROOT)/../../c/comparers/include\"",
+					"\"$(SRCROOT)/../../c/unit_tests/include\"",
+					"\"$(SRCROOT)/../../c/zlib-1.2.8/include\"",
+					"\"$(SRCROOT)/../../c/libpng-1.6.24/include\"",
+					"\"$(SRCROOT)/../../c/collections/include\"",
+					"\"$(SRCROOT)/../../c/common/libraries\"",
+					"\"$(SRCROOT)/../../c/common/include\"",
+					"\"$(SRCROOT)/../../c/concurrency/include\"",
+					"\"$(SRCROOT)/../../c/networking/include\"",
+					"\"$(SRCROOT)/../../c/nsd/include\"",
+					"\"$(SRCROOT)/../../c/server/include\"",
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "Remotely.Click Server for MacOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../Library/RemoteControllerAPI_Server";
 				LIBRARY_SEARCH_PATHS = (
-					/Users/michzio/Developer/MyProjects/BachelorDegree/c/comparers/output/unix/lib/static,
-					"\"$(SRCROOT)/../../c/unit_tests/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/zlib-1.2.8/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/libpng-1.6.24/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/collections/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/common/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/concurrency/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/networking/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/nsd/output/unix/lib/static\"",
-					"\"$(SRCROOT)/../../c/server/output/apple/lib/static\"",
+					"\"$(SRCROOT)/../../c/common/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/concurrency/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/server/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/comparers/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/unit_tests/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/zlib-1.2.8/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/libpng-1.6.24/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/collections/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/networking/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/nsd/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/system/OS_X/automation_scripts/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/system/OS_X/cocoa_helper/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/system/OS_X/keyboard_events/outputs/lib/apple\"",
+					"\"$(SRCROOT)/../../c/system/OS_X/mouse_events/outputs/lib/apple\"",
 					/usr/local/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
